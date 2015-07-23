@@ -1,0 +1,956 @@
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Pin_1.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.Pin_1_Write,"ax",%progbits
+  18              		.align	2
+  19              		.global	Pin_1_Write
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	Pin_1_Write, %function
+  23              	Pin_1_Write:
+  24              	.LFB0:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\Pin_1.c"
+   1:.\Generated_Source\PSoC4/Pin_1.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/Pin_1.c **** * File Name: Pin_1.c  
+   3:.\Generated_Source\PSoC4/Pin_1.c **** * Version 2.10
+   4:.\Generated_Source\PSoC4/Pin_1.c **** *
+   5:.\Generated_Source\PSoC4/Pin_1.c **** * Description:
+   6:.\Generated_Source\PSoC4/Pin_1.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:.\Generated_Source\PSoC4/Pin_1.c **** *
+   8:.\Generated_Source\PSoC4/Pin_1.c **** * Note:
+   9:.\Generated_Source\PSoC4/Pin_1.c **** *
+  10:.\Generated_Source\PSoC4/Pin_1.c **** ********************************************************************************
+  11:.\Generated_Source\PSoC4/Pin_1.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  12:.\Generated_Source\PSoC4/Pin_1.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:.\Generated_Source\PSoC4/Pin_1.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:.\Generated_Source\PSoC4/Pin_1.c **** * the software package with which this file was provided.
+  15:.\Generated_Source\PSoC4/Pin_1.c **** *******************************************************************************/
+  16:.\Generated_Source\PSoC4/Pin_1.c **** 
+  17:.\Generated_Source\PSoC4/Pin_1.c **** #include "cytypes.h"
+  18:.\Generated_Source\PSoC4/Pin_1.c **** #include "Pin_1.h"
+  19:.\Generated_Source\PSoC4/Pin_1.c **** 
+  20:.\Generated_Source\PSoC4/Pin_1.c **** #define SetP4PinDriveMode(shift, mode)  \
+  21:.\Generated_Source\PSoC4/Pin_1.c ****     do { \
+  22:.\Generated_Source\PSoC4/Pin_1.c ****         Pin_1_PC =   (Pin_1_PC & \
+  23:.\Generated_Source\PSoC4/Pin_1.c ****                                 (uint32)(~(uint32)(Pin_1_DRIVE_MODE_IND_MASK << (Pin_1_DRIVE_MODE_B
+  24:.\Generated_Source\PSoC4/Pin_1.c ****                                 (uint32)((uint32)(mode) << (Pin_1_DRIVE_MODE_BITS * (shift))); \
+  25:.\Generated_Source\PSoC4/Pin_1.c ****     } while (0)
+  26:.\Generated_Source\PSoC4/Pin_1.c **** 
+  27:.\Generated_Source\PSoC4/Pin_1.c **** 
+  28:.\Generated_Source\PSoC4/Pin_1.c **** /*******************************************************************************
+  29:.\Generated_Source\PSoC4/Pin_1.c **** * Function Name: Pin_1_Write
+  30:.\Generated_Source\PSoC4/Pin_1.c **** ********************************************************************************
+  31:.\Generated_Source\PSoC4/Pin_1.c **** *
+  32:.\Generated_Source\PSoC4/Pin_1.c **** * Summary:
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/Pin_1.c **** *  Assign a new value to the digital port's data output register.  
+  34:.\Generated_Source\PSoC4/Pin_1.c **** *
+  35:.\Generated_Source\PSoC4/Pin_1.c **** * Parameters:  
+  36:.\Generated_Source\PSoC4/Pin_1.c **** *  prtValue:  The value to be assigned to the Digital Port. 
+  37:.\Generated_Source\PSoC4/Pin_1.c **** *
+  38:.\Generated_Source\PSoC4/Pin_1.c **** * Return: 
+  39:.\Generated_Source\PSoC4/Pin_1.c **** *  None 
+  40:.\Generated_Source\PSoC4/Pin_1.c **** *  
+  41:.\Generated_Source\PSoC4/Pin_1.c **** *******************************************************************************/
+  42:.\Generated_Source\PSoC4/Pin_1.c **** void Pin_1_Write(uint8 value) 
+  43:.\Generated_Source\PSoC4/Pin_1.c **** {
+  26              		.loc 1 43 0
+  27              		.cfi_startproc
+  28              	.LVL0:
+  44:.\Generated_Source\PSoC4/Pin_1.c ****     uint8 drVal = (uint8)(Pin_1_DR & (uint8)(~Pin_1_MASK));
+  29              		.loc 1 44 0
+  30 0000 044B     		ldr	r3, .L2
+  31 0002 1968     		ldr	r1, [r3]
+  32 0004 F022     		mov	r2, #240
+  33 0006 0A40     		and	r2, r1
+  34              	.LVL1:
+  45:.\Generated_Source\PSoC4/Pin_1.c ****     drVal = (drVal | ((uint8)(value << Pin_1_SHIFT) & Pin_1_MASK));
+  35              		.loc 1 45 0
+  36 0008 0F21     		mov	r1, #15
+  37 000a 0840     		and	r0, r1
+  38              	.LVL2:
+  39 000c 1043     		orr	r0, r2
+  40              	.LVL3:
+  46:.\Generated_Source\PSoC4/Pin_1.c ****     Pin_1_DR = (uint32)drVal;
+  41              		.loc 1 46 0
+  42 000e 1860     		str	r0, [r3]
+  47:.\Generated_Source\PSoC4/Pin_1.c **** }
+  43              		.loc 1 47 0
+  44              		@ sp needed
+  45 0010 7047     		bx	lr
+  46              	.L3:
+  47 0012 C046     		.align	2
+  48              	.L2:
+  49 0014 00010440 		.word	1074004224
+  50              		.cfi_endproc
+  51              	.LFE0:
+  52              		.size	Pin_1_Write, .-Pin_1_Write
+  53              		.section	.text.Pin_1_SetDriveMode,"ax",%progbits
+  54              		.align	2
+  55              		.global	Pin_1_SetDriveMode
+  56              		.code	16
+  57              		.thumb_func
+  58              		.type	Pin_1_SetDriveMode, %function
+  59              	Pin_1_SetDriveMode:
+  60              	.LFB1:
+  48:.\Generated_Source\PSoC4/Pin_1.c **** 
+  49:.\Generated_Source\PSoC4/Pin_1.c **** 
+  50:.\Generated_Source\PSoC4/Pin_1.c **** /*******************************************************************************
+  51:.\Generated_Source\PSoC4/Pin_1.c **** * Function Name: Pin_1_SetDriveMode
+  52:.\Generated_Source\PSoC4/Pin_1.c **** ********************************************************************************
+  53:.\Generated_Source\PSoC4/Pin_1.c **** *
+  54:.\Generated_Source\PSoC4/Pin_1.c **** * Summary:
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 3
+
+
+  55:.\Generated_Source\PSoC4/Pin_1.c **** *  Change the drive mode on the pins of the port.
+  56:.\Generated_Source\PSoC4/Pin_1.c **** * 
+  57:.\Generated_Source\PSoC4/Pin_1.c **** * Parameters:  
+  58:.\Generated_Source\PSoC4/Pin_1.c **** *  mode:  Change the pins to one of the following drive modes.
+  59:.\Generated_Source\PSoC4/Pin_1.c **** *
+  60:.\Generated_Source\PSoC4/Pin_1.c **** *  Pin_1_DM_STRONG     Strong Drive 
+  61:.\Generated_Source\PSoC4/Pin_1.c **** *  Pin_1_DM_OD_HI      Open Drain, Drives High 
+  62:.\Generated_Source\PSoC4/Pin_1.c **** *  Pin_1_DM_OD_LO      Open Drain, Drives Low 
+  63:.\Generated_Source\PSoC4/Pin_1.c **** *  Pin_1_DM_RES_UP     Resistive Pull Up 
+  64:.\Generated_Source\PSoC4/Pin_1.c **** *  Pin_1_DM_RES_DWN    Resistive Pull Down 
+  65:.\Generated_Source\PSoC4/Pin_1.c **** *  Pin_1_DM_RES_UPDWN  Resistive Pull Up/Down 
+  66:.\Generated_Source\PSoC4/Pin_1.c **** *  Pin_1_DM_DIG_HIZ    High Impedance Digital 
+  67:.\Generated_Source\PSoC4/Pin_1.c **** *  Pin_1_DM_ALG_HIZ    High Impedance Analog 
+  68:.\Generated_Source\PSoC4/Pin_1.c **** *
+  69:.\Generated_Source\PSoC4/Pin_1.c **** * Return: 
+  70:.\Generated_Source\PSoC4/Pin_1.c **** *  None
+  71:.\Generated_Source\PSoC4/Pin_1.c **** *
+  72:.\Generated_Source\PSoC4/Pin_1.c **** *******************************************************************************/
+  73:.\Generated_Source\PSoC4/Pin_1.c **** void Pin_1_SetDriveMode(uint8 mode) 
+  74:.\Generated_Source\PSoC4/Pin_1.c **** {
+  61              		.loc 1 74 0
+  62              		.cfi_startproc
+  63              	.LVL4:
+  75:.\Generated_Source\PSoC4/Pin_1.c **** 	SetP4PinDriveMode(Pin_1__0__SHIFT, mode);
+  64              		.loc 1 75 0
+  65 0000 0C4B     		ldr	r3, .L5
+  66 0002 1A68     		ldr	r2, [r3]
+  67 0004 0721     		mov	r1, #7
+  68 0006 8A43     		bic	r2, r1
+  69 0008 0243     		orr	r2, r0
+  70 000a 1A60     		str	r2, [r3]
+  76:.\Generated_Source\PSoC4/Pin_1.c **** 	SetP4PinDriveMode(Pin_1__1__SHIFT, mode);
+  71              		.loc 1 76 0
+  72 000c 1A68     		ldr	r2, [r3]
+  73 000e 3821     		mov	r1, #56
+  74 0010 8A43     		bic	r2, r1
+  75 0012 C100     		lsl	r1, r0, #3
+  76 0014 0A43     		orr	r2, r1
+  77 0016 1A60     		str	r2, [r3]
+  77:.\Generated_Source\PSoC4/Pin_1.c **** 	SetP4PinDriveMode(Pin_1__2__SHIFT, mode);
+  78              		.loc 1 77 0
+  79 0018 1968     		ldr	r1, [r3]
+  80 001a 074A     		ldr	r2, .L5+4
+  81 001c 0A40     		and	r2, r1
+  82 001e 8101     		lsl	r1, r0, #6
+  83 0020 0A43     		orr	r2, r1
+  84 0022 1A60     		str	r2, [r3]
+  78:.\Generated_Source\PSoC4/Pin_1.c **** 	SetP4PinDriveMode(Pin_1__3__SHIFT, mode);
+  85              		.loc 1 78 0
+  86 0024 1968     		ldr	r1, [r3]
+  87 0026 054A     		ldr	r2, .L5+8
+  88 0028 1140     		and	r1, r2
+  89 002a 4202     		lsl	r2, r0, #9
+  90 002c 081C     		mov	r0, r1
+  91              	.LVL5:
+  92 002e 1043     		orr	r0, r2
+  93 0030 1860     		str	r0, [r3]
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 4
+
+
+  79:.\Generated_Source\PSoC4/Pin_1.c **** }
+  94              		.loc 1 79 0
+  95              		@ sp needed
+  96 0032 7047     		bx	lr
+  97              	.L6:
+  98              		.align	2
+  99              	.L5:
+ 100 0034 08010440 		.word	1074004232
+ 101 0038 3FFEFFFF 		.word	-449
+ 102 003c FFF1FFFF 		.word	-3585
+ 103              		.cfi_endproc
+ 104              	.LFE1:
+ 105              		.size	Pin_1_SetDriveMode, .-Pin_1_SetDriveMode
+ 106              		.section	.text.Pin_1_Read,"ax",%progbits
+ 107              		.align	2
+ 108              		.global	Pin_1_Read
+ 109              		.code	16
+ 110              		.thumb_func
+ 111              		.type	Pin_1_Read, %function
+ 112              	Pin_1_Read:
+ 113              	.LFB2:
+  80:.\Generated_Source\PSoC4/Pin_1.c **** 
+  81:.\Generated_Source\PSoC4/Pin_1.c **** 
+  82:.\Generated_Source\PSoC4/Pin_1.c **** /*******************************************************************************
+  83:.\Generated_Source\PSoC4/Pin_1.c **** * Function Name: Pin_1_Read
+  84:.\Generated_Source\PSoC4/Pin_1.c **** ********************************************************************************
+  85:.\Generated_Source\PSoC4/Pin_1.c **** *
+  86:.\Generated_Source\PSoC4/Pin_1.c **** * Summary:
+  87:.\Generated_Source\PSoC4/Pin_1.c **** *  Read the current value on the pins of the Digital Port in right justified 
+  88:.\Generated_Source\PSoC4/Pin_1.c **** *  form.
+  89:.\Generated_Source\PSoC4/Pin_1.c **** *
+  90:.\Generated_Source\PSoC4/Pin_1.c **** * Parameters:  
+  91:.\Generated_Source\PSoC4/Pin_1.c **** *  None 
+  92:.\Generated_Source\PSoC4/Pin_1.c **** *
+  93:.\Generated_Source\PSoC4/Pin_1.c **** * Return: 
+  94:.\Generated_Source\PSoC4/Pin_1.c **** *  Returns the current value of the Digital Port as a right justified number
+  95:.\Generated_Source\PSoC4/Pin_1.c **** *  
+  96:.\Generated_Source\PSoC4/Pin_1.c **** * Note:
+  97:.\Generated_Source\PSoC4/Pin_1.c **** *  Macro Pin_1_ReadPS calls this function. 
+  98:.\Generated_Source\PSoC4/Pin_1.c **** *  
+  99:.\Generated_Source\PSoC4/Pin_1.c **** *******************************************************************************/
+ 100:.\Generated_Source\PSoC4/Pin_1.c **** uint8 Pin_1_Read(void) 
+ 101:.\Generated_Source\PSoC4/Pin_1.c **** {
+ 114              		.loc 1 101 0
+ 115              		.cfi_startproc
+ 102:.\Generated_Source\PSoC4/Pin_1.c ****     return (uint8)((Pin_1_PS & Pin_1_MASK) >> Pin_1_SHIFT);
+ 116              		.loc 1 102 0
+ 117 0000 024B     		ldr	r3, .L8
+ 118 0002 1868     		ldr	r0, [r3]
+ 119 0004 0F23     		mov	r3, #15
+ 120 0006 1840     		and	r0, r3
+ 103:.\Generated_Source\PSoC4/Pin_1.c **** }
+ 121              		.loc 1 103 0
+ 122              		@ sp needed
+ 123 0008 7047     		bx	lr
+ 124              	.L9:
+ 125 000a C046     		.align	2
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 5
+
+
+ 126              	.L8:
+ 127 000c 04010440 		.word	1074004228
+ 128              		.cfi_endproc
+ 129              	.LFE2:
+ 130              		.size	Pin_1_Read, .-Pin_1_Read
+ 131              		.section	.text.Pin_1_ReadDataReg,"ax",%progbits
+ 132              		.align	2
+ 133              		.global	Pin_1_ReadDataReg
+ 134              		.code	16
+ 135              		.thumb_func
+ 136              		.type	Pin_1_ReadDataReg, %function
+ 137              	Pin_1_ReadDataReg:
+ 138              	.LFB3:
+ 104:.\Generated_Source\PSoC4/Pin_1.c **** 
+ 105:.\Generated_Source\PSoC4/Pin_1.c **** 
+ 106:.\Generated_Source\PSoC4/Pin_1.c **** /*******************************************************************************
+ 107:.\Generated_Source\PSoC4/Pin_1.c **** * Function Name: Pin_1_ReadDataReg
+ 108:.\Generated_Source\PSoC4/Pin_1.c **** ********************************************************************************
+ 109:.\Generated_Source\PSoC4/Pin_1.c **** *
+ 110:.\Generated_Source\PSoC4/Pin_1.c **** * Summary:
+ 111:.\Generated_Source\PSoC4/Pin_1.c **** *  Read the current value assigned to a Digital Port's data output register
+ 112:.\Generated_Source\PSoC4/Pin_1.c **** *
+ 113:.\Generated_Source\PSoC4/Pin_1.c **** * Parameters:  
+ 114:.\Generated_Source\PSoC4/Pin_1.c **** *  None 
+ 115:.\Generated_Source\PSoC4/Pin_1.c **** *
+ 116:.\Generated_Source\PSoC4/Pin_1.c **** * Return: 
+ 117:.\Generated_Source\PSoC4/Pin_1.c **** *  Returns the current value assigned to the Digital Port's data output register
+ 118:.\Generated_Source\PSoC4/Pin_1.c **** *  
+ 119:.\Generated_Source\PSoC4/Pin_1.c **** *******************************************************************************/
+ 120:.\Generated_Source\PSoC4/Pin_1.c **** uint8 Pin_1_ReadDataReg(void) 
+ 121:.\Generated_Source\PSoC4/Pin_1.c **** {
+ 139              		.loc 1 121 0
+ 140              		.cfi_startproc
+ 122:.\Generated_Source\PSoC4/Pin_1.c ****     return (uint8)((Pin_1_DR & Pin_1_MASK) >> Pin_1_SHIFT);
+ 141              		.loc 1 122 0
+ 142 0000 024B     		ldr	r3, .L11
+ 143 0002 1868     		ldr	r0, [r3]
+ 144 0004 0F23     		mov	r3, #15
+ 145 0006 1840     		and	r0, r3
+ 123:.\Generated_Source\PSoC4/Pin_1.c **** }
+ 146              		.loc 1 123 0
+ 147              		@ sp needed
+ 148 0008 7047     		bx	lr
+ 149              	.L12:
+ 150 000a C046     		.align	2
+ 151              	.L11:
+ 152 000c 00010440 		.word	1074004224
+ 153              		.cfi_endproc
+ 154              	.LFE3:
+ 155              		.size	Pin_1_ReadDataReg, .-Pin_1_ReadDataReg
+ 156              		.section	.text.Pin_1_ClearInterrupt,"ax",%progbits
+ 157              		.align	2
+ 158              		.global	Pin_1_ClearInterrupt
+ 159              		.code	16
+ 160              		.thumb_func
+ 161              		.type	Pin_1_ClearInterrupt, %function
+ 162              	Pin_1_ClearInterrupt:
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 6
+
+
+ 163              	.LFB4:
+ 124:.\Generated_Source\PSoC4/Pin_1.c **** 
+ 125:.\Generated_Source\PSoC4/Pin_1.c **** 
+ 126:.\Generated_Source\PSoC4/Pin_1.c **** /* If Interrupts Are Enabled for this Pins component */ 
+ 127:.\Generated_Source\PSoC4/Pin_1.c **** #if defined(Pin_1_INTSTAT) 
+ 128:.\Generated_Source\PSoC4/Pin_1.c **** 
+ 129:.\Generated_Source\PSoC4/Pin_1.c ****     /*******************************************************************************
+ 130:.\Generated_Source\PSoC4/Pin_1.c ****     * Function Name: Pin_1_ClearInterrupt
+ 131:.\Generated_Source\PSoC4/Pin_1.c ****     ********************************************************************************
+ 132:.\Generated_Source\PSoC4/Pin_1.c ****     *
+ 133:.\Generated_Source\PSoC4/Pin_1.c ****     * Summary:
+ 134:.\Generated_Source\PSoC4/Pin_1.c ****     *  Clears any active interrupts attached to port and returns the value of the 
+ 135:.\Generated_Source\PSoC4/Pin_1.c ****     *  interrupt status register.
+ 136:.\Generated_Source\PSoC4/Pin_1.c ****     *
+ 137:.\Generated_Source\PSoC4/Pin_1.c ****     * Parameters:  
+ 138:.\Generated_Source\PSoC4/Pin_1.c ****     *  None 
+ 139:.\Generated_Source\PSoC4/Pin_1.c ****     *
+ 140:.\Generated_Source\PSoC4/Pin_1.c ****     * Return: 
+ 141:.\Generated_Source\PSoC4/Pin_1.c ****     *  Returns the value of the interrupt status register
+ 142:.\Generated_Source\PSoC4/Pin_1.c ****     *  
+ 143:.\Generated_Source\PSoC4/Pin_1.c ****     *******************************************************************************/
+ 144:.\Generated_Source\PSoC4/Pin_1.c ****     uint8 Pin_1_ClearInterrupt(void) 
+ 145:.\Generated_Source\PSoC4/Pin_1.c ****     {
+ 164              		.loc 1 145 0
+ 165              		.cfi_startproc
+ 146:.\Generated_Source\PSoC4/Pin_1.c **** 		uint8 maskedStatus = (uint8)(Pin_1_INTSTAT & Pin_1_MASK);
+ 166              		.loc 1 146 0
+ 167 0000 024B     		ldr	r3, .L14
+ 168 0002 1868     		ldr	r0, [r3]
+ 169 0004 0F22     		mov	r2, #15
+ 170 0006 1040     		and	r0, r2
+ 171              	.LVL6:
+ 147:.\Generated_Source\PSoC4/Pin_1.c **** 		Pin_1_INTSTAT = maskedStatus;
+ 172              		.loc 1 147 0
+ 173 0008 1860     		str	r0, [r3]
+ 148:.\Generated_Source\PSoC4/Pin_1.c ****         return maskedStatus >> Pin_1_SHIFT;
+ 149:.\Generated_Source\PSoC4/Pin_1.c ****     }
+ 174              		.loc 1 149 0
+ 175              		@ sp needed
+ 176 000a 7047     		bx	lr
+ 177              	.L15:
+ 178              		.align	2
+ 179              	.L14:
+ 180 000c 10010440 		.word	1074004240
+ 181              		.cfi_endproc
+ 182              	.LFE4:
+ 183              		.size	Pin_1_ClearInterrupt, .-Pin_1_ClearInterrupt
+ 184              		.text
+ 185              	.Letext0:
+ 186              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 187              		.section	.debug_info,"",%progbits
+ 188              	.Ldebug_info0:
+ 189 0000 4A010000 		.4byte	0x14a
+ 190 0004 0400     		.2byte	0x4
+ 191 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 192 000a 04       		.byte	0x4
+ 193 000b 01       		.uleb128 0x1
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 7
+
+
+ 194 000c BC000000 		.4byte	.LASF24
+ 195 0010 01       		.byte	0x1
+ 196 0011 56000000 		.4byte	.LASF25
+ 197 0015 38010000 		.4byte	.LASF26
+ 198 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 199 001d 00000000 		.4byte	0
+ 200 0021 00000000 		.4byte	.Ldebug_line0
+ 201 0025 02       		.uleb128 0x2
+ 202 0026 01       		.byte	0x1
+ 203 0027 06       		.byte	0x6
+ 204 0028 C8010000 		.4byte	.LASF0
+ 205 002c 02       		.uleb128 0x2
+ 206 002d 01       		.byte	0x1
+ 207 002e 08       		.byte	0x8
+ 208 002f 1D000000 		.4byte	.LASF1
+ 209 0033 02       		.uleb128 0x2
+ 210 0034 02       		.byte	0x2
+ 211 0035 05       		.byte	0x5
+ 212 0036 9D010000 		.4byte	.LASF2
+ 213 003a 02       		.uleb128 0x2
+ 214 003b 02       		.byte	0x2
+ 215 003c 07       		.byte	0x7
+ 216 003d 43000000 		.4byte	.LASF3
+ 217 0041 02       		.uleb128 0x2
+ 218 0042 04       		.byte	0x4
+ 219 0043 05       		.byte	0x5
+ 220 0044 BF010000 		.4byte	.LASF4
+ 221 0048 02       		.uleb128 0x2
+ 222 0049 04       		.byte	0x4
+ 223 004a 07       		.byte	0x7
+ 224 004b 31000000 		.4byte	.LASF5
+ 225 004f 02       		.uleb128 0x2
+ 226 0050 08       		.byte	0x8
+ 227 0051 05       		.byte	0x5
+ 228 0052 7D010000 		.4byte	.LASF6
+ 229 0056 02       		.uleb128 0x2
+ 230 0057 08       		.byte	0x8
+ 231 0058 07       		.byte	0x7
+ 232 0059 A5000000 		.4byte	.LASF7
+ 233 005d 03       		.uleb128 0x3
+ 234 005e 04       		.byte	0x4
+ 235 005f 05       		.byte	0x5
+ 236 0060 696E7400 		.ascii	"int\000"
+ 237 0064 02       		.uleb128 0x2
+ 238 0065 04       		.byte	0x4
+ 239 0066 07       		.byte	0x7
+ 240 0067 98000000 		.4byte	.LASF8
+ 241 006b 04       		.uleb128 0x4
+ 242 006c A7010000 		.4byte	.LASF9
+ 243 0070 02       		.byte	0x2
+ 244 0071 B3       		.byte	0xb3
+ 245 0072 2C000000 		.4byte	0x2c
+ 246 0076 04       		.uleb128 0x4
+ 247 0077 91000000 		.4byte	.LASF10
+ 248 007b 02       		.byte	0x2
+ 249 007c B5       		.byte	0xb5
+ 250 007d 48000000 		.4byte	0x48
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 8
+
+
+ 251 0081 02       		.uleb128 0x2
+ 252 0082 04       		.byte	0x4
+ 253 0083 04       		.byte	0x4
+ 254 0084 17000000 		.4byte	.LASF11
+ 255 0088 02       		.uleb128 0x2
+ 256 0089 08       		.byte	0x8
+ 257 008a 04       		.byte	0x4
+ 258 008b 77000000 		.4byte	.LASF12
+ 259 008f 02       		.uleb128 0x2
+ 260 0090 01       		.byte	0x1
+ 261 0091 08       		.byte	0x8
+ 262 0092 98010000 		.4byte	.LASF13
+ 263 0096 05       		.uleb128 0x5
+ 264 0097 0B000000 		.4byte	.LASF14
+ 265 009b 02       		.byte	0x2
+ 266 009c 5F01     		.2byte	0x15f
+ 267 009e A2000000 		.4byte	0xa2
+ 268 00a2 06       		.uleb128 0x6
+ 269 00a3 76000000 		.4byte	0x76
+ 270 00a7 07       		.uleb128 0x7
+ 271 00a8 D4010000 		.4byte	.LASF15
+ 272 00ac 01       		.byte	0x1
+ 273 00ad 2A       		.byte	0x2a
+ 274 00ae 00000000 		.4byte	.LFB0
+ 275 00b2 18000000 		.4byte	.LFE0-.LFB0
+ 276 00b6 01       		.uleb128 0x1
+ 277 00b7 9C       		.byte	0x9c
+ 278 00b8 DB000000 		.4byte	0xdb
+ 279 00bc 08       		.uleb128 0x8
+ 280 00bd 11000000 		.4byte	.LASF17
+ 281 00c1 01       		.byte	0x1
+ 282 00c2 2A       		.byte	0x2a
+ 283 00c3 6B000000 		.4byte	0x6b
+ 284 00c7 00000000 		.4byte	.LLST0
+ 285 00cb 09       		.uleb128 0x9
+ 286 00cc 2B000000 		.4byte	.LASF22
+ 287 00d0 01       		.byte	0x1
+ 288 00d1 2C       		.byte	0x2c
+ 289 00d2 6B000000 		.4byte	0x6b
+ 290 00d6 21000000 		.4byte	.LLST1
+ 291 00da 00       		.byte	0
+ 292 00db 07       		.uleb128 0x7
+ 293 00dc 7E000000 		.4byte	.LASF16
+ 294 00e0 01       		.byte	0x1
+ 295 00e1 49       		.byte	0x49
+ 296 00e2 00000000 		.4byte	.LFB1
+ 297 00e6 40000000 		.4byte	.LFE1-.LFB1
+ 298 00ea 01       		.uleb128 0x1
+ 299 00eb 9C       		.byte	0x9c
+ 300 00ec 00010000 		.4byte	0x100
+ 301 00f0 08       		.uleb128 0x8
+ 302 00f1 78010000 		.4byte	.LASF18
+ 303 00f5 01       		.byte	0x1
+ 304 00f6 49       		.byte	0x49
+ 305 00f7 6B000000 		.4byte	0x6b
+ 306 00fb 3F000000 		.4byte	.LLST2
+ 307 00ff 00       		.byte	0
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 9
+
+
+ 308 0100 0A       		.uleb128 0xa
+ 309 0101 00000000 		.4byte	.LASF19
+ 310 0105 01       		.byte	0x1
+ 311 0106 64       		.byte	0x64
+ 312 0107 6B000000 		.4byte	0x6b
+ 313 010b 00000000 		.4byte	.LFB2
+ 314 010f 10000000 		.4byte	.LFE2-.LFB2
+ 315 0113 01       		.uleb128 0x1
+ 316 0114 9C       		.byte	0x9c
+ 317 0115 0A       		.uleb128 0xa
+ 318 0116 AD010000 		.4byte	.LASF20
+ 319 011a 01       		.byte	0x1
+ 320 011b 78       		.byte	0x78
+ 321 011c 6B000000 		.4byte	0x6b
+ 322 0120 00000000 		.4byte	.LFB3
+ 323 0124 10000000 		.4byte	.LFE3-.LFB3
+ 324 0128 01       		.uleb128 0x1
+ 325 0129 9C       		.byte	0x9c
+ 326 012a 0B       		.uleb128 0xb
+ 327 012b E0010000 		.4byte	.LASF21
+ 328 012f 01       		.byte	0x1
+ 329 0130 90       		.byte	0x90
+ 330 0131 6B000000 		.4byte	0x6b
+ 331 0135 00000000 		.4byte	.LFB4
+ 332 0139 10000000 		.4byte	.LFE4-.LFB4
+ 333 013d 01       		.uleb128 0x1
+ 334 013e 9C       		.byte	0x9c
+ 335 013f 0C       		.uleb128 0xc
+ 336 0140 8B010000 		.4byte	.LASF23
+ 337 0144 01       		.byte	0x1
+ 338 0145 92       		.byte	0x92
+ 339 0146 6B000000 		.4byte	0x6b
+ 340 014a 01       		.uleb128 0x1
+ 341 014b 50       		.byte	0x50
+ 342 014c 00       		.byte	0
+ 343 014d 00       		.byte	0
+ 344              		.section	.debug_abbrev,"",%progbits
+ 345              	.Ldebug_abbrev0:
+ 346 0000 01       		.uleb128 0x1
+ 347 0001 11       		.uleb128 0x11
+ 348 0002 01       		.byte	0x1
+ 349 0003 25       		.uleb128 0x25
+ 350 0004 0E       		.uleb128 0xe
+ 351 0005 13       		.uleb128 0x13
+ 352 0006 0B       		.uleb128 0xb
+ 353 0007 03       		.uleb128 0x3
+ 354 0008 0E       		.uleb128 0xe
+ 355 0009 1B       		.uleb128 0x1b
+ 356 000a 0E       		.uleb128 0xe
+ 357 000b 55       		.uleb128 0x55
+ 358 000c 17       		.uleb128 0x17
+ 359 000d 11       		.uleb128 0x11
+ 360 000e 01       		.uleb128 0x1
+ 361 000f 10       		.uleb128 0x10
+ 362 0010 17       		.uleb128 0x17
+ 363 0011 00       		.byte	0
+ 364 0012 00       		.byte	0
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 10
+
+
+ 365 0013 02       		.uleb128 0x2
+ 366 0014 24       		.uleb128 0x24
+ 367 0015 00       		.byte	0
+ 368 0016 0B       		.uleb128 0xb
+ 369 0017 0B       		.uleb128 0xb
+ 370 0018 3E       		.uleb128 0x3e
+ 371 0019 0B       		.uleb128 0xb
+ 372 001a 03       		.uleb128 0x3
+ 373 001b 0E       		.uleb128 0xe
+ 374 001c 00       		.byte	0
+ 375 001d 00       		.byte	0
+ 376 001e 03       		.uleb128 0x3
+ 377 001f 24       		.uleb128 0x24
+ 378 0020 00       		.byte	0
+ 379 0021 0B       		.uleb128 0xb
+ 380 0022 0B       		.uleb128 0xb
+ 381 0023 3E       		.uleb128 0x3e
+ 382 0024 0B       		.uleb128 0xb
+ 383 0025 03       		.uleb128 0x3
+ 384 0026 08       		.uleb128 0x8
+ 385 0027 00       		.byte	0
+ 386 0028 00       		.byte	0
+ 387 0029 04       		.uleb128 0x4
+ 388 002a 16       		.uleb128 0x16
+ 389 002b 00       		.byte	0
+ 390 002c 03       		.uleb128 0x3
+ 391 002d 0E       		.uleb128 0xe
+ 392 002e 3A       		.uleb128 0x3a
+ 393 002f 0B       		.uleb128 0xb
+ 394 0030 3B       		.uleb128 0x3b
+ 395 0031 0B       		.uleb128 0xb
+ 396 0032 49       		.uleb128 0x49
+ 397 0033 13       		.uleb128 0x13
+ 398 0034 00       		.byte	0
+ 399 0035 00       		.byte	0
+ 400 0036 05       		.uleb128 0x5
+ 401 0037 16       		.uleb128 0x16
+ 402 0038 00       		.byte	0
+ 403 0039 03       		.uleb128 0x3
+ 404 003a 0E       		.uleb128 0xe
+ 405 003b 3A       		.uleb128 0x3a
+ 406 003c 0B       		.uleb128 0xb
+ 407 003d 3B       		.uleb128 0x3b
+ 408 003e 05       		.uleb128 0x5
+ 409 003f 49       		.uleb128 0x49
+ 410 0040 13       		.uleb128 0x13
+ 411 0041 00       		.byte	0
+ 412 0042 00       		.byte	0
+ 413 0043 06       		.uleb128 0x6
+ 414 0044 35       		.uleb128 0x35
+ 415 0045 00       		.byte	0
+ 416 0046 49       		.uleb128 0x49
+ 417 0047 13       		.uleb128 0x13
+ 418 0048 00       		.byte	0
+ 419 0049 00       		.byte	0
+ 420 004a 07       		.uleb128 0x7
+ 421 004b 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 11
+
+
+ 422 004c 01       		.byte	0x1
+ 423 004d 3F       		.uleb128 0x3f
+ 424 004e 19       		.uleb128 0x19
+ 425 004f 03       		.uleb128 0x3
+ 426 0050 0E       		.uleb128 0xe
+ 427 0051 3A       		.uleb128 0x3a
+ 428 0052 0B       		.uleb128 0xb
+ 429 0053 3B       		.uleb128 0x3b
+ 430 0054 0B       		.uleb128 0xb
+ 431 0055 27       		.uleb128 0x27
+ 432 0056 19       		.uleb128 0x19
+ 433 0057 11       		.uleb128 0x11
+ 434 0058 01       		.uleb128 0x1
+ 435 0059 12       		.uleb128 0x12
+ 436 005a 06       		.uleb128 0x6
+ 437 005b 40       		.uleb128 0x40
+ 438 005c 18       		.uleb128 0x18
+ 439 005d 9742     		.uleb128 0x2117
+ 440 005f 19       		.uleb128 0x19
+ 441 0060 01       		.uleb128 0x1
+ 442 0061 13       		.uleb128 0x13
+ 443 0062 00       		.byte	0
+ 444 0063 00       		.byte	0
+ 445 0064 08       		.uleb128 0x8
+ 446 0065 05       		.uleb128 0x5
+ 447 0066 00       		.byte	0
+ 448 0067 03       		.uleb128 0x3
+ 449 0068 0E       		.uleb128 0xe
+ 450 0069 3A       		.uleb128 0x3a
+ 451 006a 0B       		.uleb128 0xb
+ 452 006b 3B       		.uleb128 0x3b
+ 453 006c 0B       		.uleb128 0xb
+ 454 006d 49       		.uleb128 0x49
+ 455 006e 13       		.uleb128 0x13
+ 456 006f 02       		.uleb128 0x2
+ 457 0070 17       		.uleb128 0x17
+ 458 0071 00       		.byte	0
+ 459 0072 00       		.byte	0
+ 460 0073 09       		.uleb128 0x9
+ 461 0074 34       		.uleb128 0x34
+ 462 0075 00       		.byte	0
+ 463 0076 03       		.uleb128 0x3
+ 464 0077 0E       		.uleb128 0xe
+ 465 0078 3A       		.uleb128 0x3a
+ 466 0079 0B       		.uleb128 0xb
+ 467 007a 3B       		.uleb128 0x3b
+ 468 007b 0B       		.uleb128 0xb
+ 469 007c 49       		.uleb128 0x49
+ 470 007d 13       		.uleb128 0x13
+ 471 007e 02       		.uleb128 0x2
+ 472 007f 17       		.uleb128 0x17
+ 473 0080 00       		.byte	0
+ 474 0081 00       		.byte	0
+ 475 0082 0A       		.uleb128 0xa
+ 476 0083 2E       		.uleb128 0x2e
+ 477 0084 00       		.byte	0
+ 478 0085 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 12
+
+
+ 479 0086 19       		.uleb128 0x19
+ 480 0087 03       		.uleb128 0x3
+ 481 0088 0E       		.uleb128 0xe
+ 482 0089 3A       		.uleb128 0x3a
+ 483 008a 0B       		.uleb128 0xb
+ 484 008b 3B       		.uleb128 0x3b
+ 485 008c 0B       		.uleb128 0xb
+ 486 008d 27       		.uleb128 0x27
+ 487 008e 19       		.uleb128 0x19
+ 488 008f 49       		.uleb128 0x49
+ 489 0090 13       		.uleb128 0x13
+ 490 0091 11       		.uleb128 0x11
+ 491 0092 01       		.uleb128 0x1
+ 492 0093 12       		.uleb128 0x12
+ 493 0094 06       		.uleb128 0x6
+ 494 0095 40       		.uleb128 0x40
+ 495 0096 18       		.uleb128 0x18
+ 496 0097 9742     		.uleb128 0x2117
+ 497 0099 19       		.uleb128 0x19
+ 498 009a 00       		.byte	0
+ 499 009b 00       		.byte	0
+ 500 009c 0B       		.uleb128 0xb
+ 501 009d 2E       		.uleb128 0x2e
+ 502 009e 01       		.byte	0x1
+ 503 009f 3F       		.uleb128 0x3f
+ 504 00a0 19       		.uleb128 0x19
+ 505 00a1 03       		.uleb128 0x3
+ 506 00a2 0E       		.uleb128 0xe
+ 507 00a3 3A       		.uleb128 0x3a
+ 508 00a4 0B       		.uleb128 0xb
+ 509 00a5 3B       		.uleb128 0x3b
+ 510 00a6 0B       		.uleb128 0xb
+ 511 00a7 27       		.uleb128 0x27
+ 512 00a8 19       		.uleb128 0x19
+ 513 00a9 49       		.uleb128 0x49
+ 514 00aa 13       		.uleb128 0x13
+ 515 00ab 11       		.uleb128 0x11
+ 516 00ac 01       		.uleb128 0x1
+ 517 00ad 12       		.uleb128 0x12
+ 518 00ae 06       		.uleb128 0x6
+ 519 00af 40       		.uleb128 0x40
+ 520 00b0 18       		.uleb128 0x18
+ 521 00b1 9742     		.uleb128 0x2117
+ 522 00b3 19       		.uleb128 0x19
+ 523 00b4 00       		.byte	0
+ 524 00b5 00       		.byte	0
+ 525 00b6 0C       		.uleb128 0xc
+ 526 00b7 34       		.uleb128 0x34
+ 527 00b8 00       		.byte	0
+ 528 00b9 03       		.uleb128 0x3
+ 529 00ba 0E       		.uleb128 0xe
+ 530 00bb 3A       		.uleb128 0x3a
+ 531 00bc 0B       		.uleb128 0xb
+ 532 00bd 3B       		.uleb128 0x3b
+ 533 00be 0B       		.uleb128 0xb
+ 534 00bf 49       		.uleb128 0x49
+ 535 00c0 13       		.uleb128 0x13
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 13
+
+
+ 536 00c1 02       		.uleb128 0x2
+ 537 00c2 18       		.uleb128 0x18
+ 538 00c3 00       		.byte	0
+ 539 00c4 00       		.byte	0
+ 540 00c5 00       		.byte	0
+ 541              		.section	.debug_loc,"",%progbits
+ 542              	.Ldebug_loc0:
+ 543              	.LLST0:
+ 544 0000 00000000 		.4byte	.LVL0
+ 545 0004 0C000000 		.4byte	.LVL2
+ 546 0008 0100     		.2byte	0x1
+ 547 000a 50       		.byte	0x50
+ 548 000b 0C000000 		.4byte	.LVL2
+ 549 000f 18000000 		.4byte	.LFE0
+ 550 0013 0400     		.2byte	0x4
+ 551 0015 F3       		.byte	0xf3
+ 552 0016 01       		.uleb128 0x1
+ 553 0017 50       		.byte	0x50
+ 554 0018 9F       		.byte	0x9f
+ 555 0019 00000000 		.4byte	0
+ 556 001d 00000000 		.4byte	0
+ 557              	.LLST1:
+ 558 0021 08000000 		.4byte	.LVL1
+ 559 0025 0E000000 		.4byte	.LVL3
+ 560 0029 0100     		.2byte	0x1
+ 561 002b 52       		.byte	0x52
+ 562 002c 0E000000 		.4byte	.LVL3
+ 563 0030 18000000 		.4byte	.LFE0
+ 564 0034 0100     		.2byte	0x1
+ 565 0036 50       		.byte	0x50
+ 566 0037 00000000 		.4byte	0
+ 567 003b 00000000 		.4byte	0
+ 568              	.LLST2:
+ 569 003f 00000000 		.4byte	.LVL4
+ 570 0043 2E000000 		.4byte	.LVL5
+ 571 0047 0100     		.2byte	0x1
+ 572 0049 50       		.byte	0x50
+ 573 004a 2E000000 		.4byte	.LVL5
+ 574 004e 40000000 		.4byte	.LFE1
+ 575 0052 0400     		.2byte	0x4
+ 576 0054 F3       		.byte	0xf3
+ 577 0055 01       		.uleb128 0x1
+ 578 0056 50       		.byte	0x50
+ 579 0057 9F       		.byte	0x9f
+ 580 0058 00000000 		.4byte	0
+ 581 005c 00000000 		.4byte	0
+ 582              		.section	.debug_aranges,"",%progbits
+ 583 0000 3C000000 		.4byte	0x3c
+ 584 0004 0200     		.2byte	0x2
+ 585 0006 00000000 		.4byte	.Ldebug_info0
+ 586 000a 04       		.byte	0x4
+ 587 000b 00       		.byte	0
+ 588 000c 0000     		.2byte	0
+ 589 000e 0000     		.2byte	0
+ 590 0010 00000000 		.4byte	.LFB0
+ 591 0014 18000000 		.4byte	.LFE0-.LFB0
+ 592 0018 00000000 		.4byte	.LFB1
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 14
+
+
+ 593 001c 40000000 		.4byte	.LFE1-.LFB1
+ 594 0020 00000000 		.4byte	.LFB2
+ 595 0024 10000000 		.4byte	.LFE2-.LFB2
+ 596 0028 00000000 		.4byte	.LFB3
+ 597 002c 10000000 		.4byte	.LFE3-.LFB3
+ 598 0030 00000000 		.4byte	.LFB4
+ 599 0034 10000000 		.4byte	.LFE4-.LFB4
+ 600 0038 00000000 		.4byte	0
+ 601 003c 00000000 		.4byte	0
+ 602              		.section	.debug_ranges,"",%progbits
+ 603              	.Ldebug_ranges0:
+ 604 0000 00000000 		.4byte	.LFB0
+ 605 0004 18000000 		.4byte	.LFE0
+ 606 0008 00000000 		.4byte	.LFB1
+ 607 000c 40000000 		.4byte	.LFE1
+ 608 0010 00000000 		.4byte	.LFB2
+ 609 0014 10000000 		.4byte	.LFE2
+ 610 0018 00000000 		.4byte	.LFB3
+ 611 001c 10000000 		.4byte	.LFE3
+ 612 0020 00000000 		.4byte	.LFB4
+ 613 0024 10000000 		.4byte	.LFE4
+ 614 0028 00000000 		.4byte	0
+ 615 002c 00000000 		.4byte	0
+ 616              		.section	.debug_line,"",%progbits
+ 617              	.Ldebug_line0:
+ 618 0000 A9000000 		.section	.debug_str,"MS",%progbits,1
+ 618      02004400 
+ 618      00000201 
+ 618      FB0E0D00 
+ 618      01010101 
+ 619              	.LASF19:
+ 620 0000 50696E5F 		.ascii	"Pin_1_Read\000"
+ 620      315F5265 
+ 620      616400
+ 621              	.LASF14:
+ 622 000b 72656733 		.ascii	"reg32\000"
+ 622      3200
+ 623              	.LASF17:
+ 624 0011 76616C75 		.ascii	"value\000"
+ 624      6500
+ 625              	.LASF11:
+ 626 0017 666C6F61 		.ascii	"float\000"
+ 626      7400
+ 627              	.LASF1:
+ 628 001d 756E7369 		.ascii	"unsigned char\000"
+ 628      676E6564 
+ 628      20636861 
+ 628      7200
+ 629              	.LASF22:
+ 630 002b 64725661 		.ascii	"drVal\000"
+ 630      6C00
+ 631              	.LASF5:
+ 632 0031 6C6F6E67 		.ascii	"long unsigned int\000"
+ 632      20756E73 
+ 632      69676E65 
+ 632      6420696E 
+ 632      7400
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 15
+
+
+ 633              	.LASF3:
+ 634 0043 73686F72 		.ascii	"short unsigned int\000"
+ 634      7420756E 
+ 634      7369676E 
+ 634      65642069 
+ 634      6E7400
+ 635              	.LASF25:
+ 636 0056 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Pin_1.c\000"
+ 636      6E657261 
+ 636      7465645F 
+ 636      536F7572 
+ 636      63655C50 
+ 637              	.LASF12:
+ 638 0077 646F7562 		.ascii	"double\000"
+ 638      6C6500
+ 639              	.LASF16:
+ 640 007e 50696E5F 		.ascii	"Pin_1_SetDriveMode\000"
+ 640      315F5365 
+ 640      74447269 
+ 640      76654D6F 
+ 640      646500
+ 641              	.LASF10:
+ 642 0091 75696E74 		.ascii	"uint32\000"
+ 642      333200
+ 643              	.LASF8:
+ 644 0098 756E7369 		.ascii	"unsigned int\000"
+ 644      676E6564 
+ 644      20696E74 
+ 644      00
+ 645              	.LASF7:
+ 646 00a5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 646      206C6F6E 
+ 646      6720756E 
+ 646      7369676E 
+ 646      65642069 
+ 647              	.LASF24:
+ 648 00bc 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 648      4320342E 
+ 648      382E3420 
+ 648      32303134 
+ 648      30353236 
+ 649 00ef 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 649      20726576 
+ 649      6973696F 
+ 649      6E203231 
+ 649      31333538 
+ 650 0122 67202D66 		.ascii	"g -ffunction-sections\000"
+ 650      66756E63 
+ 650      74696F6E 
+ 650      2D736563 
+ 650      74696F6E 
+ 651              	.LASF26:
+ 652 0138 433A5C55 		.ascii	"C:\\Users\\Raulmo\\Desktop\\Lightening\\BLE_FindMe0"
+ 652      73657273 
+ 652      5C526175 
+ 652      6C6D6F5C 
+ 652      4465736B 
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\ccEldk14.s 			page 16
+
+
+ 653 0166 315C4944 		.ascii	"1\\IDAC_BLE2.cydsn\000"
+ 653      41435F42 
+ 653      4C45322E 
+ 653      63796473 
+ 653      6E00
+ 654              	.LASF18:
+ 655 0178 6D6F6465 		.ascii	"mode\000"
+ 655      00
+ 656              	.LASF6:
+ 657 017d 6C6F6E67 		.ascii	"long long int\000"
+ 657      206C6F6E 
+ 657      6720696E 
+ 657      7400
+ 658              	.LASF23:
+ 659 018b 6D61736B 		.ascii	"maskedStatus\000"
+ 659      65645374 
+ 659      61747573 
+ 659      00
+ 660              	.LASF13:
+ 661 0198 63686172 		.ascii	"char\000"
+ 661      00
+ 662              	.LASF2:
+ 663 019d 73686F72 		.ascii	"short int\000"
+ 663      7420696E 
+ 663      7400
+ 664              	.LASF9:
+ 665 01a7 75696E74 		.ascii	"uint8\000"
+ 665      3800
+ 666              	.LASF20:
+ 667 01ad 50696E5F 		.ascii	"Pin_1_ReadDataReg\000"
+ 667      315F5265 
+ 667      61644461 
+ 667      74615265 
+ 667      6700
+ 668              	.LASF4:
+ 669 01bf 6C6F6E67 		.ascii	"long int\000"
+ 669      20696E74 
+ 669      00
+ 670              	.LASF0:
+ 671 01c8 7369676E 		.ascii	"signed char\000"
+ 671      65642063 
+ 671      68617200 
+ 672              	.LASF15:
+ 673 01d4 50696E5F 		.ascii	"Pin_1_Write\000"
+ 673      315F5772 
+ 673      69746500 
+ 674              	.LASF21:
+ 675 01e0 50696E5F 		.ascii	"Pin_1_ClearInterrupt\000"
+ 675      315F436C 
+ 675      65617249 
+ 675      6E746572 
+ 675      72757074 
+ 676              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

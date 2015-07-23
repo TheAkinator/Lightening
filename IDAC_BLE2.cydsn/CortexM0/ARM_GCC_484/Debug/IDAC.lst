@@ -1,0 +1,1258 @@
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"IDAC.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.IDAC_Init,"ax",%progbits
+  18              		.align	2
+  19              		.global	IDAC_Init
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	IDAC_Init, %function
+  23              	IDAC_Init:
+  24              	.LFB2:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\IDAC.c"
+   1:.\Generated_Source\PSoC4/IDAC.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/IDAC.c **** * File Name: IDAC.c
+   3:.\Generated_Source\PSoC4/IDAC.c **** * Version 1.10
+   4:.\Generated_Source\PSoC4/IDAC.c **** *
+   5:.\Generated_Source\PSoC4/IDAC.c **** * Description:
+   6:.\Generated_Source\PSoC4/IDAC.c **** *  This file provides the source code of APIs for the IDAC_P4 component.
+   7:.\Generated_Source\PSoC4/IDAC.c **** *
+   8:.\Generated_Source\PSoC4/IDAC.c **** *******************************************************************************
+   9:.\Generated_Source\PSoC4/IDAC.c **** * Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  10:.\Generated_Source\PSoC4/IDAC.c **** * You may use this file only in accordance with the license, terms, conditions,
+  11:.\Generated_Source\PSoC4/IDAC.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  12:.\Generated_Source\PSoC4/IDAC.c **** * the software package with which this file was provided.
+  13:.\Generated_Source\PSoC4/IDAC.c **** *******************************************************************************/
+  14:.\Generated_Source\PSoC4/IDAC.c **** 
+  15:.\Generated_Source\PSoC4/IDAC.c **** #include "IDAC.h"
+  16:.\Generated_Source\PSoC4/IDAC.c **** 
+  17:.\Generated_Source\PSoC4/IDAC.c **** uint32 IDAC_initVar = 0u;
+  18:.\Generated_Source\PSoC4/IDAC.c **** 
+  19:.\Generated_Source\PSoC4/IDAC.c **** 
+  20:.\Generated_Source\PSoC4/IDAC.c **** /*******************************************************************************
+  21:.\Generated_Source\PSoC4/IDAC.c **** * Function Name: IDAC_Init
+  22:.\Generated_Source\PSoC4/IDAC.c **** ********************************************************************************
+  23:.\Generated_Source\PSoC4/IDAC.c **** *
+  24:.\Generated_Source\PSoC4/IDAC.c **** * Summary:
+  25:.\Generated_Source\PSoC4/IDAC.c **** *  Initializes IDAC registers with initial values provided from customizer.
+  26:.\Generated_Source\PSoC4/IDAC.c **** *
+  27:.\Generated_Source\PSoC4/IDAC.c **** * Parameters:
+  28:.\Generated_Source\PSoC4/IDAC.c **** *  None
+  29:.\Generated_Source\PSoC4/IDAC.c **** *
+  30:.\Generated_Source\PSoC4/IDAC.c **** * Return:
+  31:.\Generated_Source\PSoC4/IDAC.c **** *  None
+  32:.\Generated_Source\PSoC4/IDAC.c **** *
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/IDAC.c **** * Global variables:
+  34:.\Generated_Source\PSoC4/IDAC.c **** *  None
+  35:.\Generated_Source\PSoC4/IDAC.c **** *
+  36:.\Generated_Source\PSoC4/IDAC.c **** *******************************************************************************/
+  37:.\Generated_Source\PSoC4/IDAC.c **** void IDAC_Init(void)
+  38:.\Generated_Source\PSoC4/IDAC.c **** {
+  26              		.loc 1 38 0
+  27              		.cfi_startproc
+  28 0000 10B5     		push	{r4, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 4, -8
+  31              		.cfi_offset 14, -4
+  39:.\Generated_Source\PSoC4/IDAC.c ****     uint32 regVal;
+  40:.\Generated_Source\PSoC4/IDAC.c ****     uint8 enableInterrupts;
+  41:.\Generated_Source\PSoC4/IDAC.c **** 
+  42:.\Generated_Source\PSoC4/IDAC.c ****     /* Set initial configuration */
+  43:.\Generated_Source\PSoC4/IDAC.c ****     enableInterrupts = CyEnterCriticalSection();
+  32              		.loc 1 43 0
+  33 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  34              	.LVL0:
+  44:.\Generated_Source\PSoC4/IDAC.c ****     
+  45:.\Generated_Source\PSoC4/IDAC.c ****     #if(IDAC_MODE_SOURCE == IDAC_IDAC_POLARITY)
+  46:.\Generated_Source\PSoC4/IDAC.c ****         regVal  = IDAC_CSD_TRIM1_REG & ~(IDAC_CSD_IDAC_TRIM1_MASK);
+  35              		.loc 1 46 0
+  36 0006 0E4B     		ldr	r3, .L2
+  37 0008 1968     		ldr	r1, [r3]
+  38 000a 0F22     		mov	r2, #15
+  39 000c 9143     		bic	r1, r2
+  40              	.LVL1:
+  47:.\Generated_Source\PSoC4/IDAC.c ****         regVal |=  (IDAC_SFLASH_TRIM1_REG & IDAC_CSD_IDAC_TRIM1_MASK);
+  41              		.loc 1 47 0
+  42 000e 0D4A     		ldr	r2, .L2+4
+  43 0010 1478     		ldrb	r4, [r2]
+  44 0012 0F22     		mov	r2, #15
+  45 0014 2240     		and	r2, r4
+  46 0016 0A43     		orr	r2, r1
+  47              	.LVL2:
+  48:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_CSD_TRIM1_REG = regVal;
+  48              		.loc 1 48 0
+  49 0018 1A60     		str	r2, [r3]
+  49:.\Generated_Source\PSoC4/IDAC.c ****     #else
+  50:.\Generated_Source\PSoC4/IDAC.c ****         regVal  = IDAC_CSD_TRIM2_REG & ~(IDAC_CSD_IDAC_TRIM2_MASK);
+  51:.\Generated_Source\PSoC4/IDAC.c ****         regVal |=  (IDAC_SFLASH_TRIM2_REG & IDAC_CSD_IDAC_TRIM2_MASK);
+  52:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_CSD_TRIM2_REG = regVal;
+  53:.\Generated_Source\PSoC4/IDAC.c ****     #endif /* (IDAC_MODE_SOURCE == IDAC_IDAC_POLARITY) */
+  54:.\Generated_Source\PSoC4/IDAC.c **** 
+  55:.\Generated_Source\PSoC4/IDAC.c ****     /* clear previous values */
+  56:.\Generated_Source\PSoC4/IDAC.c ****     IDAC_IDAC_CONTROL_REG &= ((uint32)~((uint32)IDAC_IDAC_VALUE_MASK <<
+  50              		.loc 1 56 0
+  51 001a 0B4A     		ldr	r2, .L2+8
+  52              	.LVL3:
+  53 001c 1368     		ldr	r3, [r2]
+  54              	.LVL4:
+  55 001e 1360     		str	r3, [r2]
+  56              	.LVL5:
+  57:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_IDAC_VALUE_POSITION)) | ((uint32)~((uint32)IDAC_IDAC_MODE_MASK <<
+  58:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_IDAC_MODE_POSITION))  | ((uint32)~((uint32)IDAC_IDAC_RANGE_MASK  <<
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 3
+
+
+  59:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_IDAC_RANGE_POSITION));
+  60:.\Generated_Source\PSoC4/IDAC.c **** 
+  61:.\Generated_Source\PSoC4/IDAC.c ****     IDAC_IDAC_POLARITY_CONTROL_REG &= (~(uint32)((uint32)IDAC_IDAC_POLARITY_MASK <<
+  57              		.loc 1 61 0
+  58 0020 0A4B     		ldr	r3, .L2+12
+  59 0022 1C68     		ldr	r4, [r3]
+  60              	.LVL6:
+  61 0024 0A49     		ldr	r1, .L2+16
+  62 0026 2140     		and	r1, r4
+  63 0028 1960     		str	r1, [r3]
+  62:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_IDAC_POLARITY_POSITION));
+  63:.\Generated_Source\PSoC4/IDAC.c **** 
+  64:.\Generated_Source\PSoC4/IDAC.c ****     /* set new configuration */
+  65:.\Generated_Source\PSoC4/IDAC.c ****     IDAC_IDAC_CONTROL_REG |= (((uint32)IDAC_IDAC_INIT_VALUE <<
+  64              		.loc 1 65 0
+  65 002a 1468     		ldr	r4, [r2]
+  66 002c 8F21     		mov	r1, #143
+  67 002e C900     		lsl	r1, r1, #3
+  68 0030 2143     		orr	r1, r4
+  69 0032 1160     		str	r1, [r2]
+  66:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_IDAC_VALUE_POSITION) | ((uint32)IDAC_IDAC_RANGE <<
+  67:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_IDAC_RANGE_POSITION));
+  68:.\Generated_Source\PSoC4/IDAC.c **** 
+  69:.\Generated_Source\PSoC4/IDAC.c ****     IDAC_IDAC_POLARITY_CONTROL_REG |= ((uint32)IDAC_IDAC_POLARITY <<
+  70              		.loc 1 69 0
+  71 0034 1A68     		ldr	r2, [r3]
+  72 0036 1A60     		str	r2, [r3]
+  70:.\Generated_Source\PSoC4/IDAC.c ****                                                            IDAC_IDAC_POLARITY_POSITION);
+  71:.\Generated_Source\PSoC4/IDAC.c **** 
+  72:.\Generated_Source\PSoC4/IDAC.c ****     CyExitCriticalSection(enableInterrupts);
+  73              		.loc 1 72 0
+  74 0038 FFF7FEFF 		bl	CyExitCriticalSection
+  75              	.LVL7:
+  73:.\Generated_Source\PSoC4/IDAC.c **** 
+  74:.\Generated_Source\PSoC4/IDAC.c **** }
+  76              		.loc 1 74 0
+  77              		@ sp needed
+  78 003c 10BD     		pop	{r4, pc}
+  79              	.L3:
+  80 003e C046     		.align	2
+  81              	.L2:
+  82 0040 00FF2840 		.word	1076428544
+  83 0044 60F1FF0F 		.word	268431712
+  84 0048 08002840 		.word	1076363272
+  85 004c 04002840 		.word	1076363268
+  86 0050 FFFFFEFF 		.word	-65537
+  87              		.cfi_endproc
+  88              	.LFE2:
+  89              		.size	IDAC_Init, .-IDAC_Init
+  90              		.section	.text.IDAC_Enable,"ax",%progbits
+  91              		.align	2
+  92              		.global	IDAC_Enable
+  93              		.code	16
+  94              		.thumb_func
+  95              		.type	IDAC_Enable, %function
+  96              	IDAC_Enable:
+  97              	.LFB3:
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 4
+
+
+  75:.\Generated_Source\PSoC4/IDAC.c **** 
+  76:.\Generated_Source\PSoC4/IDAC.c **** 
+  77:.\Generated_Source\PSoC4/IDAC.c **** /*******************************************************************************
+  78:.\Generated_Source\PSoC4/IDAC.c **** * Function Name: IDAC_Enable
+  79:.\Generated_Source\PSoC4/IDAC.c **** ********************************************************************************
+  80:.\Generated_Source\PSoC4/IDAC.c **** *
+  81:.\Generated_Source\PSoC4/IDAC.c **** * Summary:
+  82:.\Generated_Source\PSoC4/IDAC.c **** *  Enables IDAC operations.
+  83:.\Generated_Source\PSoC4/IDAC.c **** *
+  84:.\Generated_Source\PSoC4/IDAC.c **** * Parameters:
+  85:.\Generated_Source\PSoC4/IDAC.c **** *  None
+  86:.\Generated_Source\PSoC4/IDAC.c **** *
+  87:.\Generated_Source\PSoC4/IDAC.c **** * Return:
+  88:.\Generated_Source\PSoC4/IDAC.c **** *  None
+  89:.\Generated_Source\PSoC4/IDAC.c **** *
+  90:.\Generated_Source\PSoC4/IDAC.c **** * Global variables:
+  91:.\Generated_Source\PSoC4/IDAC.c **** *  None
+  92:.\Generated_Source\PSoC4/IDAC.c **** *
+  93:.\Generated_Source\PSoC4/IDAC.c **** *******************************************************************************/
+  94:.\Generated_Source\PSoC4/IDAC.c **** void IDAC_Enable(void)
+  95:.\Generated_Source\PSoC4/IDAC.c **** {
+  98              		.loc 1 95 0
+  99              		.cfi_startproc
+ 100 0000 08B5     		push	{r3, lr}
+ 101              		.cfi_def_cfa_offset 8
+ 102              		.cfi_offset 3, -8
+ 103              		.cfi_offset 14, -4
+  96:.\Generated_Source\PSoC4/IDAC.c ****     uint8 enableInterrupts;
+  97:.\Generated_Source\PSoC4/IDAC.c **** 
+  98:.\Generated_Source\PSoC4/IDAC.c ****     enableInterrupts = CyEnterCriticalSection();
+ 104              		.loc 1 98 0
+ 105 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+ 106              	.LVL8:
+  99:.\Generated_Source\PSoC4/IDAC.c **** 
+ 100:.\Generated_Source\PSoC4/IDAC.c ****     /* Enable the IDAC */
+ 101:.\Generated_Source\PSoC4/IDAC.c ****     IDAC_IDAC_CONTROL_REG |= ((uint32)IDAC_IDAC_EN_MODE <<
+ 107              		.loc 1 101 0
+ 108 0006 074B     		ldr	r3, .L5
+ 109 0008 1968     		ldr	r1, [r3]
+ 110 000a C022     		mov	r2, #192
+ 111 000c 9200     		lsl	r2, r2, #2
+ 112 000e 0A43     		orr	r2, r1
+ 113 0010 1A60     		str	r2, [r3]
+ 102:.\Generated_Source\PSoC4/IDAC.c ****                                                   IDAC_IDAC_MODE_POSITION);
+ 103:.\Generated_Source\PSoC4/IDAC.c ****     IDAC_IDAC_POLARITY_CONTROL_REG |= ((uint32)IDAC_IDAC_CSD_EN <<
+ 114              		.loc 1 103 0
+ 115 0012 054B     		ldr	r3, .L5+4
+ 116 0014 1968     		ldr	r1, [r3]
+ 117 0016 8022     		mov	r2, #128
+ 118 0018 1206     		lsl	r2, r2, #24
+ 119 001a 0A43     		orr	r2, r1
+ 120 001c 1A60     		str	r2, [r3]
+ 104:.\Generated_Source\PSoC4/IDAC.c ****                                                            IDAC_IDAC_CSD_EN_POSITION);
+ 105:.\Generated_Source\PSoC4/IDAC.c ****     CyExitCriticalSection(enableInterrupts);
+ 121              		.loc 1 105 0
+ 122 001e FFF7FEFF 		bl	CyExitCriticalSection
+ 123              	.LVL9:
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 5
+
+
+ 106:.\Generated_Source\PSoC4/IDAC.c **** 
+ 107:.\Generated_Source\PSoC4/IDAC.c **** }
+ 124              		.loc 1 107 0
+ 125              		@ sp needed
+ 126 0022 08BD     		pop	{r3, pc}
+ 127              	.L6:
+ 128              		.align	2
+ 129              	.L5:
+ 130 0024 08002840 		.word	1076363272
+ 131 0028 04002840 		.word	1076363268
+ 132              		.cfi_endproc
+ 133              	.LFE3:
+ 134              		.size	IDAC_Enable, .-IDAC_Enable
+ 135              		.section	.text.IDAC_Start,"ax",%progbits
+ 136              		.align	2
+ 137              		.global	IDAC_Start
+ 138              		.code	16
+ 139              		.thumb_func
+ 140              		.type	IDAC_Start, %function
+ 141              	IDAC_Start:
+ 142              	.LFB4:
+ 108:.\Generated_Source\PSoC4/IDAC.c **** 
+ 109:.\Generated_Source\PSoC4/IDAC.c **** 
+ 110:.\Generated_Source\PSoC4/IDAC.c **** /*******************************************************************************
+ 111:.\Generated_Source\PSoC4/IDAC.c **** * Function Name: IDAC_Start
+ 112:.\Generated_Source\PSoC4/IDAC.c **** ********************************************************************************
+ 113:.\Generated_Source\PSoC4/IDAC.c **** *
+ 114:.\Generated_Source\PSoC4/IDAC.c **** * Summary:
+ 115:.\Generated_Source\PSoC4/IDAC.c **** *  Starts the IDAC hardware.
+ 116:.\Generated_Source\PSoC4/IDAC.c **** *
+ 117:.\Generated_Source\PSoC4/IDAC.c **** * Parameters:
+ 118:.\Generated_Source\PSoC4/IDAC.c **** *  None
+ 119:.\Generated_Source\PSoC4/IDAC.c **** *
+ 120:.\Generated_Source\PSoC4/IDAC.c **** * Return:
+ 121:.\Generated_Source\PSoC4/IDAC.c **** *  None
+ 122:.\Generated_Source\PSoC4/IDAC.c **** *
+ 123:.\Generated_Source\PSoC4/IDAC.c **** * Global variables:
+ 124:.\Generated_Source\PSoC4/IDAC.c **** *  IDAC_initVar
+ 125:.\Generated_Source\PSoC4/IDAC.c **** *
+ 126:.\Generated_Source\PSoC4/IDAC.c **** *******************************************************************************/
+ 127:.\Generated_Source\PSoC4/IDAC.c **** void IDAC_Start(void)
+ 128:.\Generated_Source\PSoC4/IDAC.c **** {
+ 143              		.loc 1 128 0
+ 144              		.cfi_startproc
+ 145 0000 08B5     		push	{r3, lr}
+ 146              		.cfi_def_cfa_offset 8
+ 147              		.cfi_offset 3, -8
+ 148              		.cfi_offset 14, -4
+ 129:.\Generated_Source\PSoC4/IDAC.c ****     if(0u == IDAC_initVar)
+ 149              		.loc 1 129 0
+ 150 0002 064B     		ldr	r3, .L9
+ 151 0004 1B68     		ldr	r3, [r3]
+ 152 0006 002B     		cmp	r3, #0
+ 153 0008 04D1     		bne	.L8
+ 130:.\Generated_Source\PSoC4/IDAC.c ****     {
+ 131:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_Init();
+ 154              		.loc 1 131 0
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 6
+
+
+ 155 000a FFF7FEFF 		bl	IDAC_Init
+ 156              	.LVL10:
+ 132:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_initVar = 1u;
+ 157              		.loc 1 132 0
+ 158 000e 0122     		mov	r2, #1
+ 159 0010 024B     		ldr	r3, .L9
+ 160 0012 1A60     		str	r2, [r3]
+ 161              	.L8:
+ 133:.\Generated_Source\PSoC4/IDAC.c ****     }
+ 134:.\Generated_Source\PSoC4/IDAC.c **** 
+ 135:.\Generated_Source\PSoC4/IDAC.c ****     IDAC_Enable();
+ 162              		.loc 1 135 0
+ 163 0014 FFF7FEFF 		bl	IDAC_Enable
+ 164              	.LVL11:
+ 136:.\Generated_Source\PSoC4/IDAC.c **** 
+ 137:.\Generated_Source\PSoC4/IDAC.c **** }
+ 165              		.loc 1 137 0
+ 166              		@ sp needed
+ 167 0018 08BD     		pop	{r3, pc}
+ 168              	.L10:
+ 169 001a C046     		.align	2
+ 170              	.L9:
+ 171 001c 00000000 		.word	.LANCHOR0
+ 172              		.cfi_endproc
+ 173              	.LFE4:
+ 174              		.size	IDAC_Start, .-IDAC_Start
+ 175              		.section	.text.IDAC_Stop,"ax",%progbits
+ 176              		.align	2
+ 177              		.global	IDAC_Stop
+ 178              		.code	16
+ 179              		.thumb_func
+ 180              		.type	IDAC_Stop, %function
+ 181              	IDAC_Stop:
+ 182              	.LFB5:
+ 138:.\Generated_Source\PSoC4/IDAC.c **** 
+ 139:.\Generated_Source\PSoC4/IDAC.c **** 
+ 140:.\Generated_Source\PSoC4/IDAC.c **** /*******************************************************************************
+ 141:.\Generated_Source\PSoC4/IDAC.c **** * Function Name: IDAC_Stop
+ 142:.\Generated_Source\PSoC4/IDAC.c **** ********************************************************************************
+ 143:.\Generated_Source\PSoC4/IDAC.c **** *
+ 144:.\Generated_Source\PSoC4/IDAC.c **** * Summary:
+ 145:.\Generated_Source\PSoC4/IDAC.c **** *  Stops the IDAC hardware.
+ 146:.\Generated_Source\PSoC4/IDAC.c **** *
+ 147:.\Generated_Source\PSoC4/IDAC.c **** * Parameters:
+ 148:.\Generated_Source\PSoC4/IDAC.c **** *  None
+ 149:.\Generated_Source\PSoC4/IDAC.c **** *
+ 150:.\Generated_Source\PSoC4/IDAC.c **** * Return:
+ 151:.\Generated_Source\PSoC4/IDAC.c **** *  None
+ 152:.\Generated_Source\PSoC4/IDAC.c **** *
+ 153:.\Generated_Source\PSoC4/IDAC.c **** * Global variables:
+ 154:.\Generated_Source\PSoC4/IDAC.c **** *  None
+ 155:.\Generated_Source\PSoC4/IDAC.c **** *
+ 156:.\Generated_Source\PSoC4/IDAC.c **** *******************************************************************************/
+ 157:.\Generated_Source\PSoC4/IDAC.c **** void IDAC_Stop(void)
+ 158:.\Generated_Source\PSoC4/IDAC.c **** {
+ 183              		.loc 1 158 0
+ 184              		.cfi_startproc
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 7
+
+
+ 185 0000 08B5     		push	{r3, lr}
+ 186              		.cfi_def_cfa_offset 8
+ 187              		.cfi_offset 3, -8
+ 188              		.cfi_offset 14, -4
+ 159:.\Generated_Source\PSoC4/IDAC.c ****     uint8 enableInterrupts;
+ 160:.\Generated_Source\PSoC4/IDAC.c **** 
+ 161:.\Generated_Source\PSoC4/IDAC.c ****     enableInterrupts = CyEnterCriticalSection();
+ 189              		.loc 1 161 0
+ 190 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+ 191              	.LVL12:
+ 162:.\Generated_Source\PSoC4/IDAC.c **** 
+ 163:.\Generated_Source\PSoC4/IDAC.c ****     /* Disable the IDAC */
+ 164:.\Generated_Source\PSoC4/IDAC.c ****     IDAC_IDAC_CONTROL_REG &= ((uint32)~((uint32)IDAC_IDAC_MODE_MASK <<
+ 192              		.loc 1 164 0
+ 193 0006 044B     		ldr	r3, .L12
+ 194 0008 1968     		ldr	r1, [r3]
+ 195 000a 044A     		ldr	r2, .L12+4
+ 196 000c 0A40     		and	r2, r1
+ 197 000e 1A60     		str	r2, [r3]
+ 165:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_IDAC_MODE_POSITION));
+ 166:.\Generated_Source\PSoC4/IDAC.c ****     CyExitCriticalSection(enableInterrupts);
+ 198              		.loc 1 166 0
+ 199 0010 FFF7FEFF 		bl	CyExitCriticalSection
+ 200              	.LVL13:
+ 167:.\Generated_Source\PSoC4/IDAC.c **** }
+ 201              		.loc 1 167 0
+ 202              		@ sp needed
+ 203 0014 08BD     		pop	{r3, pc}
+ 204              	.L13:
+ 205 0016 C046     		.align	2
+ 206              	.L12:
+ 207 0018 08002840 		.word	1076363272
+ 208 001c FFFCFFFF 		.word	-769
+ 209              		.cfi_endproc
+ 210              	.LFE5:
+ 211              		.size	IDAC_Stop, .-IDAC_Stop
+ 212              		.section	.text.IDAC_SetValue,"ax",%progbits
+ 213              		.align	2
+ 214              		.global	IDAC_SetValue
+ 215              		.code	16
+ 216              		.thumb_func
+ 217              		.type	IDAC_SetValue, %function
+ 218              	IDAC_SetValue:
+ 219              	.LFB6:
+ 168:.\Generated_Source\PSoC4/IDAC.c **** 
+ 169:.\Generated_Source\PSoC4/IDAC.c **** 
+ 170:.\Generated_Source\PSoC4/IDAC.c **** /*******************************************************************************
+ 171:.\Generated_Source\PSoC4/IDAC.c **** * Function Name: IDAC_SetValue
+ 172:.\Generated_Source\PSoC4/IDAC.c **** ********************************************************************************
+ 173:.\Generated_Source\PSoC4/IDAC.c **** *
+ 174:.\Generated_Source\PSoC4/IDAC.c **** * Summary:
+ 175:.\Generated_Source\PSoC4/IDAC.c **** *  Sets the IDAC value.
+ 176:.\Generated_Source\PSoC4/IDAC.c **** *
+ 177:.\Generated_Source\PSoC4/IDAC.c **** * Parameters:
+ 178:.\Generated_Source\PSoC4/IDAC.c **** *  uint32 value
+ 179:.\Generated_Source\PSoC4/IDAC.c **** *
+ 180:.\Generated_Source\PSoC4/IDAC.c **** * Return:
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 8
+
+
+ 181:.\Generated_Source\PSoC4/IDAC.c **** *  None
+ 182:.\Generated_Source\PSoC4/IDAC.c **** *
+ 183:.\Generated_Source\PSoC4/IDAC.c **** * Global variables:
+ 184:.\Generated_Source\PSoC4/IDAC.c **** *  None
+ 185:.\Generated_Source\PSoC4/IDAC.c **** *
+ 186:.\Generated_Source\PSoC4/IDAC.c **** *******************************************************************************/
+ 187:.\Generated_Source\PSoC4/IDAC.c **** void IDAC_SetValue(uint32 value)
+ 188:.\Generated_Source\PSoC4/IDAC.c **** {
+ 220              		.loc 1 188 0
+ 221              		.cfi_startproc
+ 222              	.LVL14:
+ 223 0000 10B5     		push	{r4, lr}
+ 224              		.cfi_def_cfa_offset 8
+ 225              		.cfi_offset 4, -8
+ 226              		.cfi_offset 14, -4
+ 227 0002 041C     		mov	r4, r0
+ 189:.\Generated_Source\PSoC4/IDAC.c ****     uint8 enableInterrupts;
+ 190:.\Generated_Source\PSoC4/IDAC.c ****     uint32 newRegisterValue;
+ 191:.\Generated_Source\PSoC4/IDAC.c **** 
+ 192:.\Generated_Source\PSoC4/IDAC.c ****     enableInterrupts = CyEnterCriticalSection();
+ 228              		.loc 1 192 0
+ 229 0004 FFF7FEFF 		bl	CyEnterCriticalSection
+ 230              	.LVL15:
+ 193:.\Generated_Source\PSoC4/IDAC.c **** 
+ 194:.\Generated_Source\PSoC4/IDAC.c ****     #if(IDAC_IDAC_VALUE_POSITION != 0u)
+ 195:.\Generated_Source\PSoC4/IDAC.c ****         newRegisterValue = ((IDAC_IDAC_CONTROL_REG & (~(uint32)((uint32)IDAC_IDAC_VALUE_MASK <<
+ 196:.\Generated_Source\PSoC4/IDAC.c ****         IDAC_IDAC_VALUE_POSITION))) | (value << IDAC_IDAC_VALUE_POSITION));
+ 197:.\Generated_Source\PSoC4/IDAC.c ****     #else
+ 198:.\Generated_Source\PSoC4/IDAC.c ****         newRegisterValue = ((IDAC_IDAC_CONTROL_REG & (~(uint32)IDAC_IDAC_VALUE_MASK)) | value);
+ 231              		.loc 1 198 0
+ 232 0008 044B     		ldr	r3, .L15
+ 233 000a 1A68     		ldr	r2, [r3]
+ 234 000c FF21     		mov	r1, #255
+ 235 000e 8A43     		bic	r2, r1
+ 236 0010 1443     		orr	r4, r2
+ 237              	.LVL16:
+ 199:.\Generated_Source\PSoC4/IDAC.c ****     #endif /* IDAC_IDAC_VALUE_POSITION != 0u */
+ 200:.\Generated_Source\PSoC4/IDAC.c **** 
+ 201:.\Generated_Source\PSoC4/IDAC.c ****     IDAC_IDAC_CONTROL_REG = newRegisterValue;
+ 238              		.loc 1 201 0
+ 239 0012 1C60     		str	r4, [r3]
+ 202:.\Generated_Source\PSoC4/IDAC.c **** 
+ 203:.\Generated_Source\PSoC4/IDAC.c ****     CyExitCriticalSection(enableInterrupts);
+ 240              		.loc 1 203 0
+ 241 0014 FFF7FEFF 		bl	CyExitCriticalSection
+ 242              	.LVL17:
+ 204:.\Generated_Source\PSoC4/IDAC.c **** }
+ 243              		.loc 1 204 0
+ 244              		@ sp needed
+ 245              	.LVL18:
+ 246 0018 10BD     		pop	{r4, pc}
+ 247              	.L16:
+ 248 001a C046     		.align	2
+ 249              	.L15:
+ 250 001c 08002840 		.word	1076363272
+ 251              		.cfi_endproc
+ 252              	.LFE6:
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 9
+
+
+ 253              		.size	IDAC_SetValue, .-IDAC_SetValue
+ 254              		.global	IDAC_initVar
+ 255              		.bss
+ 256              		.align	2
+ 257              		.set	.LANCHOR0,. + 0
+ 258              		.type	IDAC_initVar, %object
+ 259              		.size	IDAC_initVar, 4
+ 260              	IDAC_initVar:
+ 261 0000 00000000 		.space	4
+ 262              		.text
+ 263              	.Letext0:
+ 264              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 265              		.file 3 ".\\Generated_Source\\PSoC4\\CyLib.h"
+ 266              		.section	.debug_info,"",%progbits
+ 267              	.Ldebug_info0:
+ 268 0000 16020000 		.4byte	0x216
+ 269 0004 0400     		.2byte	0x4
+ 270 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 271 000a 04       		.byte	0x4
+ 272 000b 01       		.uleb128 0x1
+ 273 000c 18010000 		.4byte	.LASF25
+ 274 0010 01       		.byte	0x1
+ 275 0011 B7000000 		.4byte	.LASF26
+ 276 0015 94010000 		.4byte	.LASF27
+ 277 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 278 001d 00000000 		.4byte	0
+ 279 0021 00000000 		.4byte	.Ldebug_line0
+ 280 0025 02       		.uleb128 0x2
+ 281 0026 01       		.byte	0x1
+ 282 0027 06       		.byte	0x6
+ 283 0028 10020000 		.4byte	.LASF0
+ 284 002c 02       		.uleb128 0x2
+ 285 002d 01       		.byte	0x1
+ 286 002e 08       		.byte	0x8
+ 287 002f 6D000000 		.4byte	.LASF1
+ 288 0033 02       		.uleb128 0x2
+ 289 0034 02       		.byte	0x2
+ 290 0035 05       		.byte	0x5
+ 291 0036 F8010000 		.4byte	.LASF2
+ 292 003a 02       		.uleb128 0x2
+ 293 003b 02       		.byte	0x2
+ 294 003c 07       		.byte	0x7
+ 295 003d 16000000 		.4byte	.LASF3
+ 296 0041 02       		.uleb128 0x2
+ 297 0042 04       		.byte	0x4
+ 298 0043 05       		.byte	0x5
+ 299 0044 02020000 		.4byte	.LASF4
+ 300 0048 02       		.uleb128 0x2
+ 301 0049 04       		.byte	0x4
+ 302 004a 07       		.byte	0x7
+ 303 004b 80000000 		.4byte	.LASF5
+ 304 004f 02       		.uleb128 0x2
+ 305 0050 08       		.byte	0x8
+ 306 0051 05       		.byte	0x5
+ 307 0052 DD010000 		.4byte	.LASF6
+ 308 0056 02       		.uleb128 0x2
+ 309 0057 08       		.byte	0x8
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 10
+
+
+ 310 0058 07       		.byte	0x7
+ 311 0059 4C000000 		.4byte	.LASF7
+ 312 005d 03       		.uleb128 0x3
+ 313 005e 04       		.byte	0x4
+ 314 005f 05       		.byte	0x5
+ 315 0060 696E7400 		.ascii	"int\000"
+ 316 0064 02       		.uleb128 0x2
+ 317 0065 04       		.byte	0x4
+ 318 0066 07       		.byte	0x7
+ 319 0067 F5000000 		.4byte	.LASF8
+ 320 006b 04       		.uleb128 0x4
+ 321 006c 92000000 		.4byte	.LASF9
+ 322 0070 02       		.byte	0x2
+ 323 0071 B3       		.byte	0xb3
+ 324 0072 2C000000 		.4byte	0x2c
+ 325 0076 04       		.uleb128 0x4
+ 326 0077 D7000000 		.4byte	.LASF10
+ 327 007b 02       		.byte	0x2
+ 328 007c B5       		.byte	0xb5
+ 329 007d 48000000 		.4byte	0x48
+ 330 0081 02       		.uleb128 0x2
+ 331 0082 04       		.byte	0x4
+ 332 0083 04       		.byte	0x4
+ 333 0084 46000000 		.4byte	.LASF11
+ 334 0088 02       		.uleb128 0x2
+ 335 0089 08       		.byte	0x8
+ 336 008a 04       		.byte	0x4
+ 337 008b A9000000 		.4byte	.LASF12
+ 338 008f 02       		.uleb128 0x2
+ 339 0090 01       		.byte	0x1
+ 340 0091 08       		.byte	0x8
+ 341 0092 0B020000 		.4byte	.LASF13
+ 342 0096 05       		.uleb128 0x5
+ 343 0097 7B000000 		.4byte	.LASF14
+ 344 009b 02       		.byte	0x2
+ 345 009c 5D01     		.2byte	0x15d
+ 346 009e A2000000 		.4byte	0xa2
+ 347 00a2 06       		.uleb128 0x6
+ 348 00a3 6B000000 		.4byte	0x6b
+ 349 00a7 05       		.uleb128 0x5
+ 350 00a8 00000000 		.4byte	.LASF15
+ 351 00ac 02       		.byte	0x2
+ 352 00ad 5F01     		.2byte	0x15f
+ 353 00af B3000000 		.4byte	0xb3
+ 354 00b3 06       		.uleb128 0x6
+ 355 00b4 76000000 		.4byte	0x76
+ 356 00b8 02       		.uleb128 0x2
+ 357 00b9 04       		.byte	0x4
+ 358 00ba 07       		.byte	0x7
+ 359 00bb D4010000 		.4byte	.LASF16
+ 360 00bf 07       		.uleb128 0x7
+ 361 00c0 63000000 		.4byte	.LASF19
+ 362 00c4 01       		.byte	0x1
+ 363 00c5 25       		.byte	0x25
+ 364 00c6 00000000 		.4byte	.LFB2
+ 365 00ca 54000000 		.4byte	.LFE2-.LFB2
+ 366 00ce 01       		.uleb128 0x1
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 11
+
+
+ 367 00cf 9C       		.byte	0x9c
+ 368 00d0 05010000 		.4byte	0x105
+ 369 00d4 08       		.uleb128 0x8
+ 370 00d5 B0000000 		.4byte	.LASF17
+ 371 00d9 01       		.byte	0x1
+ 372 00da 27       		.byte	0x27
+ 373 00db 76000000 		.4byte	0x76
+ 374 00df 00000000 		.4byte	.LLST0
+ 375 00e3 08       		.uleb128 0x8
+ 376 00e4 98000000 		.4byte	.LASF18
+ 377 00e8 01       		.byte	0x1
+ 378 00e9 28       		.byte	0x28
+ 379 00ea 6B000000 		.4byte	0x6b
+ 380 00ee 4B000000 		.4byte	.LLST1
+ 381 00f2 09       		.uleb128 0x9
+ 382 00f3 06000000 		.4byte	.LVL0
+ 383 00f7 01020000 		.4byte	0x201
+ 384 00fb 09       		.uleb128 0x9
+ 385 00fc 3C000000 		.4byte	.LVL7
+ 386 0100 0C020000 		.4byte	0x20c
+ 387 0104 00       		.byte	0
+ 388 0105 07       		.uleb128 0x7
+ 389 0106 29000000 		.4byte	.LASF20
+ 390 010a 01       		.byte	0x1
+ 391 010b 5E       		.byte	0x5e
+ 392 010c 00000000 		.4byte	.LFB3
+ 393 0110 2C000000 		.4byte	.LFE3-.LFB3
+ 394 0114 01       		.uleb128 0x1
+ 395 0115 9C       		.byte	0x9c
+ 396 0116 3C010000 		.4byte	0x13c
+ 397 011a 08       		.uleb128 0x8
+ 398 011b 98000000 		.4byte	.LASF18
+ 399 011f 01       		.byte	0x1
+ 400 0120 60       		.byte	0x60
+ 401 0121 6B000000 		.4byte	0x6b
+ 402 0125 5E000000 		.4byte	.LLST2
+ 403 0129 09       		.uleb128 0x9
+ 404 012a 06000000 		.4byte	.LVL8
+ 405 012e 01020000 		.4byte	0x201
+ 406 0132 09       		.uleb128 0x9
+ 407 0133 22000000 		.4byte	.LVL9
+ 408 0137 0C020000 		.4byte	0x20c
+ 409 013b 00       		.byte	0
+ 410 013c 07       		.uleb128 0x7
+ 411 013d 1C020000 		.4byte	.LASF21
+ 412 0141 01       		.byte	0x1
+ 413 0142 7F       		.byte	0x7f
+ 414 0143 00000000 		.4byte	.LFB4
+ 415 0147 20000000 		.4byte	.LFE4-.LFB4
+ 416 014b 01       		.uleb128 0x1
+ 417 014c 9C       		.byte	0x9c
+ 418 014d 64010000 		.4byte	0x164
+ 419 0151 09       		.uleb128 0x9
+ 420 0152 0E000000 		.4byte	.LVL10
+ 421 0156 BF000000 		.4byte	0xbf
+ 422 015a 09       		.uleb128 0x9
+ 423 015b 18000000 		.4byte	.LVL11
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 12
+
+
+ 424 015f 05010000 		.4byte	0x105
+ 425 0163 00       		.byte	0
+ 426 0164 07       		.uleb128 0x7
+ 427 0165 06000000 		.4byte	.LASF22
+ 428 0169 01       		.byte	0x1
+ 429 016a 9D       		.byte	0x9d
+ 430 016b 00000000 		.4byte	.LFB5
+ 431 016f 20000000 		.4byte	.LFE5-.LFB5
+ 432 0173 01       		.uleb128 0x1
+ 433 0174 9C       		.byte	0x9c
+ 434 0175 9B010000 		.4byte	0x19b
+ 435 0179 08       		.uleb128 0x8
+ 436 017a 98000000 		.4byte	.LASF18
+ 437 017e 01       		.byte	0x1
+ 438 017f 9F       		.byte	0x9f
+ 439 0180 6B000000 		.4byte	0x6b
+ 440 0184 71000000 		.4byte	.LLST3
+ 441 0188 09       		.uleb128 0x9
+ 442 0189 06000000 		.4byte	.LVL12
+ 443 018d 01020000 		.4byte	0x201
+ 444 0191 09       		.uleb128 0x9
+ 445 0192 14000000 		.4byte	.LVL13
+ 446 0196 0C020000 		.4byte	0x20c
+ 447 019a 00       		.byte	0
+ 448 019b 07       		.uleb128 0x7
+ 449 019c 27020000 		.4byte	.LASF23
+ 450 01a0 01       		.byte	0x1
+ 451 01a1 BB       		.byte	0xbb
+ 452 01a2 00000000 		.4byte	.LFB6
+ 453 01a6 20000000 		.4byte	.LFE6-.LFB6
+ 454 01aa 01       		.uleb128 0x1
+ 455 01ab 9C       		.byte	0x9c
+ 456 01ac F0010000 		.4byte	0x1f0
+ 457 01b0 0A       		.uleb128 0xa
+ 458 01b1 10000000 		.4byte	.LASF28
+ 459 01b5 01       		.byte	0x1
+ 460 01b6 BB       		.byte	0xbb
+ 461 01b7 76000000 		.4byte	0x76
+ 462 01bb 84000000 		.4byte	.LLST4
+ 463 01bf 08       		.uleb128 0x8
+ 464 01c0 98000000 		.4byte	.LASF18
+ 465 01c4 01       		.byte	0x1
+ 466 01c5 BD       		.byte	0xbd
+ 467 01c6 6B000000 		.4byte	0x6b
+ 468 01ca B0000000 		.4byte	.LLST5
+ 469 01ce 08       		.uleb128 0x8
+ 470 01cf 35000000 		.4byte	.LASF24
+ 471 01d3 01       		.byte	0x1
+ 472 01d4 BE       		.byte	0xbe
+ 473 01d5 76000000 		.4byte	0x76
+ 474 01d9 C3000000 		.4byte	.LLST6
+ 475 01dd 09       		.uleb128 0x9
+ 476 01de 08000000 		.4byte	.LVL15
+ 477 01e2 01020000 		.4byte	0x201
+ 478 01e6 09       		.uleb128 0x9
+ 479 01e7 18000000 		.4byte	.LVL17
+ 480 01eb 0C020000 		.4byte	0x20c
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 13
+
+
+ 481 01ef 00       		.byte	0
+ 482 01f0 0B       		.uleb128 0xb
+ 483 01f1 EB010000 		.4byte	.LASF29
+ 484 01f5 01       		.byte	0x1
+ 485 01f6 11       		.byte	0x11
+ 486 01f7 76000000 		.4byte	0x76
+ 487 01fb 05       		.uleb128 0x5
+ 488 01fc 03       		.byte	0x3
+ 489 01fd 00000000 		.4byte	IDAC_initVar
+ 490 0201 0C       		.uleb128 0xc
+ 491 0202 DE000000 		.4byte	.LASF30
+ 492 0206 03       		.byte	0x3
+ 493 0207 5E       		.byte	0x5e
+ 494 0208 6B000000 		.4byte	0x6b
+ 495 020c 0D       		.uleb128 0xd
+ 496 020d 02010000 		.4byte	.LASF31
+ 497 0211 03       		.byte	0x3
+ 498 0212 5F       		.byte	0x5f
+ 499 0213 0E       		.uleb128 0xe
+ 500 0214 6B000000 		.4byte	0x6b
+ 501 0218 00       		.byte	0
+ 502 0219 00       		.byte	0
+ 503              		.section	.debug_abbrev,"",%progbits
+ 504              	.Ldebug_abbrev0:
+ 505 0000 01       		.uleb128 0x1
+ 506 0001 11       		.uleb128 0x11
+ 507 0002 01       		.byte	0x1
+ 508 0003 25       		.uleb128 0x25
+ 509 0004 0E       		.uleb128 0xe
+ 510 0005 13       		.uleb128 0x13
+ 511 0006 0B       		.uleb128 0xb
+ 512 0007 03       		.uleb128 0x3
+ 513 0008 0E       		.uleb128 0xe
+ 514 0009 1B       		.uleb128 0x1b
+ 515 000a 0E       		.uleb128 0xe
+ 516 000b 55       		.uleb128 0x55
+ 517 000c 17       		.uleb128 0x17
+ 518 000d 11       		.uleb128 0x11
+ 519 000e 01       		.uleb128 0x1
+ 520 000f 10       		.uleb128 0x10
+ 521 0010 17       		.uleb128 0x17
+ 522 0011 00       		.byte	0
+ 523 0012 00       		.byte	0
+ 524 0013 02       		.uleb128 0x2
+ 525 0014 24       		.uleb128 0x24
+ 526 0015 00       		.byte	0
+ 527 0016 0B       		.uleb128 0xb
+ 528 0017 0B       		.uleb128 0xb
+ 529 0018 3E       		.uleb128 0x3e
+ 530 0019 0B       		.uleb128 0xb
+ 531 001a 03       		.uleb128 0x3
+ 532 001b 0E       		.uleb128 0xe
+ 533 001c 00       		.byte	0
+ 534 001d 00       		.byte	0
+ 535 001e 03       		.uleb128 0x3
+ 536 001f 24       		.uleb128 0x24
+ 537 0020 00       		.byte	0
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 14
+
+
+ 538 0021 0B       		.uleb128 0xb
+ 539 0022 0B       		.uleb128 0xb
+ 540 0023 3E       		.uleb128 0x3e
+ 541 0024 0B       		.uleb128 0xb
+ 542 0025 03       		.uleb128 0x3
+ 543 0026 08       		.uleb128 0x8
+ 544 0027 00       		.byte	0
+ 545 0028 00       		.byte	0
+ 546 0029 04       		.uleb128 0x4
+ 547 002a 16       		.uleb128 0x16
+ 548 002b 00       		.byte	0
+ 549 002c 03       		.uleb128 0x3
+ 550 002d 0E       		.uleb128 0xe
+ 551 002e 3A       		.uleb128 0x3a
+ 552 002f 0B       		.uleb128 0xb
+ 553 0030 3B       		.uleb128 0x3b
+ 554 0031 0B       		.uleb128 0xb
+ 555 0032 49       		.uleb128 0x49
+ 556 0033 13       		.uleb128 0x13
+ 557 0034 00       		.byte	0
+ 558 0035 00       		.byte	0
+ 559 0036 05       		.uleb128 0x5
+ 560 0037 16       		.uleb128 0x16
+ 561 0038 00       		.byte	0
+ 562 0039 03       		.uleb128 0x3
+ 563 003a 0E       		.uleb128 0xe
+ 564 003b 3A       		.uleb128 0x3a
+ 565 003c 0B       		.uleb128 0xb
+ 566 003d 3B       		.uleb128 0x3b
+ 567 003e 05       		.uleb128 0x5
+ 568 003f 49       		.uleb128 0x49
+ 569 0040 13       		.uleb128 0x13
+ 570 0041 00       		.byte	0
+ 571 0042 00       		.byte	0
+ 572 0043 06       		.uleb128 0x6
+ 573 0044 35       		.uleb128 0x35
+ 574 0045 00       		.byte	0
+ 575 0046 49       		.uleb128 0x49
+ 576 0047 13       		.uleb128 0x13
+ 577 0048 00       		.byte	0
+ 578 0049 00       		.byte	0
+ 579 004a 07       		.uleb128 0x7
+ 580 004b 2E       		.uleb128 0x2e
+ 581 004c 01       		.byte	0x1
+ 582 004d 3F       		.uleb128 0x3f
+ 583 004e 19       		.uleb128 0x19
+ 584 004f 03       		.uleb128 0x3
+ 585 0050 0E       		.uleb128 0xe
+ 586 0051 3A       		.uleb128 0x3a
+ 587 0052 0B       		.uleb128 0xb
+ 588 0053 3B       		.uleb128 0x3b
+ 589 0054 0B       		.uleb128 0xb
+ 590 0055 27       		.uleb128 0x27
+ 591 0056 19       		.uleb128 0x19
+ 592 0057 11       		.uleb128 0x11
+ 593 0058 01       		.uleb128 0x1
+ 594 0059 12       		.uleb128 0x12
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 15
+
+
+ 595 005a 06       		.uleb128 0x6
+ 596 005b 40       		.uleb128 0x40
+ 597 005c 18       		.uleb128 0x18
+ 598 005d 9742     		.uleb128 0x2117
+ 599 005f 19       		.uleb128 0x19
+ 600 0060 01       		.uleb128 0x1
+ 601 0061 13       		.uleb128 0x13
+ 602 0062 00       		.byte	0
+ 603 0063 00       		.byte	0
+ 604 0064 08       		.uleb128 0x8
+ 605 0065 34       		.uleb128 0x34
+ 606 0066 00       		.byte	0
+ 607 0067 03       		.uleb128 0x3
+ 608 0068 0E       		.uleb128 0xe
+ 609 0069 3A       		.uleb128 0x3a
+ 610 006a 0B       		.uleb128 0xb
+ 611 006b 3B       		.uleb128 0x3b
+ 612 006c 0B       		.uleb128 0xb
+ 613 006d 49       		.uleb128 0x49
+ 614 006e 13       		.uleb128 0x13
+ 615 006f 02       		.uleb128 0x2
+ 616 0070 17       		.uleb128 0x17
+ 617 0071 00       		.byte	0
+ 618 0072 00       		.byte	0
+ 619 0073 09       		.uleb128 0x9
+ 620 0074 898201   		.uleb128 0x4109
+ 621 0077 00       		.byte	0
+ 622 0078 11       		.uleb128 0x11
+ 623 0079 01       		.uleb128 0x1
+ 624 007a 31       		.uleb128 0x31
+ 625 007b 13       		.uleb128 0x13
+ 626 007c 00       		.byte	0
+ 627 007d 00       		.byte	0
+ 628 007e 0A       		.uleb128 0xa
+ 629 007f 05       		.uleb128 0x5
+ 630 0080 00       		.byte	0
+ 631 0081 03       		.uleb128 0x3
+ 632 0082 0E       		.uleb128 0xe
+ 633 0083 3A       		.uleb128 0x3a
+ 634 0084 0B       		.uleb128 0xb
+ 635 0085 3B       		.uleb128 0x3b
+ 636 0086 0B       		.uleb128 0xb
+ 637 0087 49       		.uleb128 0x49
+ 638 0088 13       		.uleb128 0x13
+ 639 0089 02       		.uleb128 0x2
+ 640 008a 17       		.uleb128 0x17
+ 641 008b 00       		.byte	0
+ 642 008c 00       		.byte	0
+ 643 008d 0B       		.uleb128 0xb
+ 644 008e 34       		.uleb128 0x34
+ 645 008f 00       		.byte	0
+ 646 0090 03       		.uleb128 0x3
+ 647 0091 0E       		.uleb128 0xe
+ 648 0092 3A       		.uleb128 0x3a
+ 649 0093 0B       		.uleb128 0xb
+ 650 0094 3B       		.uleb128 0x3b
+ 651 0095 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 16
+
+
+ 652 0096 49       		.uleb128 0x49
+ 653 0097 13       		.uleb128 0x13
+ 654 0098 3F       		.uleb128 0x3f
+ 655 0099 19       		.uleb128 0x19
+ 656 009a 02       		.uleb128 0x2
+ 657 009b 18       		.uleb128 0x18
+ 658 009c 00       		.byte	0
+ 659 009d 00       		.byte	0
+ 660 009e 0C       		.uleb128 0xc
+ 661 009f 2E       		.uleb128 0x2e
+ 662 00a0 00       		.byte	0
+ 663 00a1 3F       		.uleb128 0x3f
+ 664 00a2 19       		.uleb128 0x19
+ 665 00a3 03       		.uleb128 0x3
+ 666 00a4 0E       		.uleb128 0xe
+ 667 00a5 3A       		.uleb128 0x3a
+ 668 00a6 0B       		.uleb128 0xb
+ 669 00a7 3B       		.uleb128 0x3b
+ 670 00a8 0B       		.uleb128 0xb
+ 671 00a9 27       		.uleb128 0x27
+ 672 00aa 19       		.uleb128 0x19
+ 673 00ab 49       		.uleb128 0x49
+ 674 00ac 13       		.uleb128 0x13
+ 675 00ad 3C       		.uleb128 0x3c
+ 676 00ae 19       		.uleb128 0x19
+ 677 00af 00       		.byte	0
+ 678 00b0 00       		.byte	0
+ 679 00b1 0D       		.uleb128 0xd
+ 680 00b2 2E       		.uleb128 0x2e
+ 681 00b3 01       		.byte	0x1
+ 682 00b4 3F       		.uleb128 0x3f
+ 683 00b5 19       		.uleb128 0x19
+ 684 00b6 03       		.uleb128 0x3
+ 685 00b7 0E       		.uleb128 0xe
+ 686 00b8 3A       		.uleb128 0x3a
+ 687 00b9 0B       		.uleb128 0xb
+ 688 00ba 3B       		.uleb128 0x3b
+ 689 00bb 0B       		.uleb128 0xb
+ 690 00bc 27       		.uleb128 0x27
+ 691 00bd 19       		.uleb128 0x19
+ 692 00be 3C       		.uleb128 0x3c
+ 693 00bf 19       		.uleb128 0x19
+ 694 00c0 00       		.byte	0
+ 695 00c1 00       		.byte	0
+ 696 00c2 0E       		.uleb128 0xe
+ 697 00c3 05       		.uleb128 0x5
+ 698 00c4 00       		.byte	0
+ 699 00c5 49       		.uleb128 0x49
+ 700 00c6 13       		.uleb128 0x13
+ 701 00c7 00       		.byte	0
+ 702 00c8 00       		.byte	0
+ 703 00c9 00       		.byte	0
+ 704              		.section	.debug_loc,"",%progbits
+ 705              	.Ldebug_loc0:
+ 706              	.LLST0:
+ 707 0000 0E000000 		.4byte	.LVL1
+ 708 0004 18000000 		.4byte	.LVL2
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 17
+
+
+ 709 0008 0100     		.2byte	0x1
+ 710 000a 51       		.byte	0x51
+ 711 000b 18000000 		.4byte	.LVL2
+ 712 000f 1C000000 		.4byte	.LVL3
+ 713 0013 0100     		.2byte	0x1
+ 714 0015 52       		.byte	0x52
+ 715 0016 1C000000 		.4byte	.LVL3
+ 716 001a 1E000000 		.4byte	.LVL4
+ 717 001e 0200     		.2byte	0x2
+ 718 0020 73       		.byte	0x73
+ 719 0021 00       		.sleb128 0
+ 720 0022 1E000000 		.4byte	.LVL4
+ 721 0026 20000000 		.4byte	.LVL5
+ 722 002a 0500     		.2byte	0x5
+ 723 002c 0C       		.byte	0xc
+ 724 002d 00FF2840 		.4byte	0x4028ff00
+ 725 0031 20000000 		.4byte	.LVL5
+ 726 0035 24000000 		.4byte	.LVL6
+ 727 0039 0800     		.2byte	0x8
+ 728 003b 74       		.byte	0x74
+ 729 003c 00       		.sleb128 0
+ 730 003d 3F       		.byte	0x3f
+ 731 003e 1A       		.byte	0x1a
+ 732 003f 71       		.byte	0x71
+ 733 0040 00       		.sleb128 0
+ 734 0041 21       		.byte	0x21
+ 735 0042 9F       		.byte	0x9f
+ 736 0043 00000000 		.4byte	0
+ 737 0047 00000000 		.4byte	0
+ 738              	.LLST1:
+ 739 004b 06000000 		.4byte	.LVL0
+ 740 004f 3B000000 		.4byte	.LVL7-1
+ 741 0053 0100     		.2byte	0x1
+ 742 0055 50       		.byte	0x50
+ 743 0056 00000000 		.4byte	0
+ 744 005a 00000000 		.4byte	0
+ 745              	.LLST2:
+ 746 005e 06000000 		.4byte	.LVL8
+ 747 0062 21000000 		.4byte	.LVL9-1
+ 748 0066 0100     		.2byte	0x1
+ 749 0068 50       		.byte	0x50
+ 750 0069 00000000 		.4byte	0
+ 751 006d 00000000 		.4byte	0
+ 752              	.LLST3:
+ 753 0071 06000000 		.4byte	.LVL12
+ 754 0075 13000000 		.4byte	.LVL13-1
+ 755 0079 0100     		.2byte	0x1
+ 756 007b 50       		.byte	0x50
+ 757 007c 00000000 		.4byte	0
+ 758 0080 00000000 		.4byte	0
+ 759              	.LLST4:
+ 760 0084 00000000 		.4byte	.LVL14
+ 761 0088 07000000 		.4byte	.LVL15-1
+ 762 008c 0100     		.2byte	0x1
+ 763 008e 50       		.byte	0x50
+ 764 008f 07000000 		.4byte	.LVL15-1
+ 765 0093 12000000 		.4byte	.LVL16
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 18
+
+
+ 766 0097 0100     		.2byte	0x1
+ 767 0099 54       		.byte	0x54
+ 768 009a 12000000 		.4byte	.LVL16
+ 769 009e 20000000 		.4byte	.LFE6
+ 770 00a2 0400     		.2byte	0x4
+ 771 00a4 F3       		.byte	0xf3
+ 772 00a5 01       		.uleb128 0x1
+ 773 00a6 50       		.byte	0x50
+ 774 00a7 9F       		.byte	0x9f
+ 775 00a8 00000000 		.4byte	0
+ 776 00ac 00000000 		.4byte	0
+ 777              	.LLST5:
+ 778 00b0 08000000 		.4byte	.LVL15
+ 779 00b4 17000000 		.4byte	.LVL17-1
+ 780 00b8 0100     		.2byte	0x1
+ 781 00ba 50       		.byte	0x50
+ 782 00bb 00000000 		.4byte	0
+ 783 00bf 00000000 		.4byte	0
+ 784              	.LLST6:
+ 785 00c3 12000000 		.4byte	.LVL16
+ 786 00c7 18000000 		.4byte	.LVL18
+ 787 00cb 0100     		.2byte	0x1
+ 788 00cd 54       		.byte	0x54
+ 789 00ce 00000000 		.4byte	0
+ 790 00d2 00000000 		.4byte	0
+ 791              		.section	.debug_aranges,"",%progbits
+ 792 0000 3C000000 		.4byte	0x3c
+ 793 0004 0200     		.2byte	0x2
+ 794 0006 00000000 		.4byte	.Ldebug_info0
+ 795 000a 04       		.byte	0x4
+ 796 000b 00       		.byte	0
+ 797 000c 0000     		.2byte	0
+ 798 000e 0000     		.2byte	0
+ 799 0010 00000000 		.4byte	.LFB2
+ 800 0014 54000000 		.4byte	.LFE2-.LFB2
+ 801 0018 00000000 		.4byte	.LFB3
+ 802 001c 2C000000 		.4byte	.LFE3-.LFB3
+ 803 0020 00000000 		.4byte	.LFB4
+ 804 0024 20000000 		.4byte	.LFE4-.LFB4
+ 805 0028 00000000 		.4byte	.LFB5
+ 806 002c 20000000 		.4byte	.LFE5-.LFB5
+ 807 0030 00000000 		.4byte	.LFB6
+ 808 0034 20000000 		.4byte	.LFE6-.LFB6
+ 809 0038 00000000 		.4byte	0
+ 810 003c 00000000 		.4byte	0
+ 811              		.section	.debug_ranges,"",%progbits
+ 812              	.Ldebug_ranges0:
+ 813 0000 00000000 		.4byte	.LFB2
+ 814 0004 54000000 		.4byte	.LFE2
+ 815 0008 00000000 		.4byte	.LFB3
+ 816 000c 2C000000 		.4byte	.LFE3
+ 817 0010 00000000 		.4byte	.LFB4
+ 818 0014 20000000 		.4byte	.LFE4
+ 819 0018 00000000 		.4byte	.LFB5
+ 820 001c 20000000 		.4byte	.LFE5
+ 821 0020 00000000 		.4byte	.LFB6
+ 822 0024 20000000 		.4byte	.LFE6
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 19
+
+
+ 823 0028 00000000 		.4byte	0
+ 824 002c 00000000 		.4byte	0
+ 825              		.section	.debug_line,"",%progbits
+ 826              	.Ldebug_line0:
+ 827 0000 C0000000 		.section	.debug_str,"MS",%progbits,1
+ 827      02004E00 
+ 827      00000201 
+ 827      FB0E0D00 
+ 827      01010101 
+ 828              	.LASF15:
+ 829 0000 72656733 		.ascii	"reg32\000"
+ 829      3200
+ 830              	.LASF22:
+ 831 0006 49444143 		.ascii	"IDAC_Stop\000"
+ 831      5F53746F 
+ 831      7000
+ 832              	.LASF28:
+ 833 0010 76616C75 		.ascii	"value\000"
+ 833      6500
+ 834              	.LASF3:
+ 835 0016 73686F72 		.ascii	"short unsigned int\000"
+ 835      7420756E 
+ 835      7369676E 
+ 835      65642069 
+ 835      6E7400
+ 836              	.LASF20:
+ 837 0029 49444143 		.ascii	"IDAC_Enable\000"
+ 837      5F456E61 
+ 837      626C6500 
+ 838              	.LASF24:
+ 839 0035 6E657752 		.ascii	"newRegisterValue\000"
+ 839      65676973 
+ 839      74657256 
+ 839      616C7565 
+ 839      00
+ 840              	.LASF11:
+ 841 0046 666C6F61 		.ascii	"float\000"
+ 841      7400
+ 842              	.LASF7:
+ 843 004c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 843      206C6F6E 
+ 843      6720756E 
+ 843      7369676E 
+ 843      65642069 
+ 844              	.LASF19:
+ 845 0063 49444143 		.ascii	"IDAC_Init\000"
+ 845      5F496E69 
+ 845      7400
+ 846              	.LASF1:
+ 847 006d 756E7369 		.ascii	"unsigned char\000"
+ 847      676E6564 
+ 847      20636861 
+ 847      7200
+ 848              	.LASF14:
+ 849 007b 72656738 		.ascii	"reg8\000"
+ 849      00
+ 850              	.LASF5:
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 20
+
+
+ 851 0080 6C6F6E67 		.ascii	"long unsigned int\000"
+ 851      20756E73 
+ 851      69676E65 
+ 851      6420696E 
+ 851      7400
+ 852              	.LASF9:
+ 853 0092 75696E74 		.ascii	"uint8\000"
+ 853      3800
+ 854              	.LASF18:
+ 855 0098 656E6162 		.ascii	"enableInterrupts\000"
+ 855      6C65496E 
+ 855      74657272 
+ 855      75707473 
+ 855      00
+ 856              	.LASF12:
+ 857 00a9 646F7562 		.ascii	"double\000"
+ 857      6C6500
+ 858              	.LASF17:
+ 859 00b0 72656756 		.ascii	"regVal\000"
+ 859      616C00
+ 860              	.LASF26:
+ 861 00b7 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\IDAC.c\000"
+ 861      6E657261 
+ 861      7465645F 
+ 861      536F7572 
+ 861      63655C50 
+ 862              	.LASF10:
+ 863 00d7 75696E74 		.ascii	"uint32\000"
+ 863      333200
+ 864              	.LASF30:
+ 865 00de 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 865      74657243 
+ 865      72697469 
+ 865      63616C53 
+ 865      65637469 
+ 866              	.LASF8:
+ 867 00f5 756E7369 		.ascii	"unsigned int\000"
+ 867      676E6564 
+ 867      20696E74 
+ 867      00
+ 868              	.LASF31:
+ 869 0102 43794578 		.ascii	"CyExitCriticalSection\000"
+ 869      69744372 
+ 869      69746963 
+ 869      616C5365 
+ 869      6374696F 
+ 870              	.LASF25:
+ 871 0118 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 871      4320342E 
+ 871      382E3420 
+ 871      32303134 
+ 871      30353236 
+ 872 014b 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 872      20726576 
+ 872      6973696F 
+ 872      6E203231 
+ 872      31333538 
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cchOFObc.s 			page 21
+
+
+ 873 017e 67202D66 		.ascii	"g -ffunction-sections\000"
+ 873      66756E63 
+ 873      74696F6E 
+ 873      2D736563 
+ 873      74696F6E 
+ 874              	.LASF27:
+ 875 0194 433A5C55 		.ascii	"C:\\Users\\Raulmo\\Desktop\\Lightening\\BLE_FindMe0"
+ 875      73657273 
+ 875      5C526175 
+ 875      6C6D6F5C 
+ 875      4465736B 
+ 876 01c2 315C4944 		.ascii	"1\\IDAC_BLE2.cydsn\000"
+ 876      41435F42 
+ 876      4C45322E 
+ 876      63796473 
+ 876      6E00
+ 877              	.LASF16:
+ 878 01d4 73697A65 		.ascii	"sizetype\000"
+ 878      74797065 
+ 878      00
+ 879              	.LASF6:
+ 880 01dd 6C6F6E67 		.ascii	"long long int\000"
+ 880      206C6F6E 
+ 880      6720696E 
+ 880      7400
+ 881              	.LASF29:
+ 882 01eb 49444143 		.ascii	"IDAC_initVar\000"
+ 882      5F696E69 
+ 882      74566172 
+ 882      00
+ 883              	.LASF2:
+ 884 01f8 73686F72 		.ascii	"short int\000"
+ 884      7420696E 
+ 884      7400
+ 885              	.LASF4:
+ 886 0202 6C6F6E67 		.ascii	"long int\000"
+ 886      20696E74 
+ 886      00
+ 887              	.LASF13:
+ 888 020b 63686172 		.ascii	"char\000"
+ 888      00
+ 889              	.LASF0:
+ 890 0210 7369676E 		.ascii	"signed char\000"
+ 890      65642063 
+ 890      68617200 
+ 891              	.LASF21:
+ 892 021c 49444143 		.ascii	"IDAC_Start\000"
+ 892      5F537461 
+ 892      727400
+ 893              	.LASF23:
+ 894 0227 49444143 		.ascii	"IDAC_SetValue\000"
+ 894      5F536574 
+ 894      56616C75 
+ 894      6500
+ 895              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

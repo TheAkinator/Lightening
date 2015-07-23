@@ -1,0 +1,5 @@
+C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\IDAC_BLE2.cyprj|d19dd441-48f6-49dc-9b18-1c4747cc489a
+C:\Program Files (x86)\Cypress\PSoC Creator\3.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|cfa19951-5198-4c41-b10e-0e4a696c2957
+C:\Program Files (x86)\Cypress\PSoC Creator\3.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|16efe3ec-b308-4a28-8400-3d6738662eff
+C:\Program Files (x86)\Cypress\PSoC Creator\3.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|c1fced45-80b8-4dcd-98f2-4b4be5c9c4a7
+C:\Program Files (x86)\Cypress\PSoC Creator\3.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|c43bcb15-d306-4654-80c7-eac47a8b0ff4

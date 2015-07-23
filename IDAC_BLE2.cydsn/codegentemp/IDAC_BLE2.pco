@@ -1,0 +1,25 @@
+# IDAC_BLE2
+# 2015-07-21 20:29:39Z
+
+# IO_6@[IOP=(0)][IoId=(6)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 6
+# IO_7@[IOP=(0)][IoId=(7)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 7
+# IO_0@[IOP=(6)][IoId=(0)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 0
+# IO_1@[IOP=(6)][IoId=(1)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 1
+set_io "Advertising_LED(0)" iocell 3 6
+set_location "ClockBlock" m0s8clockblockcell -1 -1 0
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "Connect_LED(0)" iocell 3 7
+set_io "Disconnect_LED(0)" iocell 2 6
+set_io "MyPin(0)" iocell 0 1
+set_io "Pin_1(0)" iocell 1 0
+set_io "Pin_1(1)" iocell 1 1
+set_io "Pin_1(2)" iocell 1 2
+set_io "Pin_1(3)" iocell 1 3
+set_location "\BLE:bless_isr\" interrupt -1 -1 12
+set_location "\BLE:cy_m0s8_ble\" p4blecell -1 -1 0
+set_location "\IDAC:cy_psoc4_idac\" p4csidac8cell -1 -1 0
+set_location "__ONE__" 0 1 0 0

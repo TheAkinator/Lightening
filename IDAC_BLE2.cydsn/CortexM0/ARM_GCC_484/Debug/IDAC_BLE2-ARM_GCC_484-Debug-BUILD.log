@@ -1,0 +1,14 @@
+--------------- Build Started: 07/21/2015 16:07:55 Project: IDAC_BLE2, Configuration: ARM GCC 4.8.4 Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\Raulmo\AppData\Local\Cypress Semiconductor\PSoC Creator\3.1" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\IDAC_BLE2.cyprj -d CY8C4247LQI-BL483 -s C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0033: error: The instance 'BLE', of component BLE_v2_0, contains an error. Unable to locate and customize component 'BLE_v2_0' used in schematic 'C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\TopDesign\TopDesign.cysch'.
+ * C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\TopDesign\TopDesign.cysch (Instance:BLE)
+ADD: sdb.M0033: error: The instance 'IDAC', of component IDAC_P4_v1_10, contains an error. Unable to locate and customize component 'IDAC_P4_v1_10' used in schematic 'C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\TopDesign\TopDesign.cysch'.
+ * C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\TopDesign\TopDesign.cysch (Instance:IDAC)
+ADD: sdb.M0065: information: Analog terminal "MyPin.analog_0" on TopDesign is unconnected.
+ * C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4005)
+ * C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\TopDesign\TopDesign.cysch (Shape_210)
+ * C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\TopDesign\TopDesign.cysch (Shape_7.1)
+ADD: sdb.M0052: error: Unable to find component "".
+Error: cdf.M0005: CyDsFit aborted due to errors, please address all errors and rerun CyDsFit. (App=cydsfit)
+--------------- Build Failed: 07/21/2015 16:07:57 ---------------

@@ -1,0 +1,1266 @@
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"BLE_custom.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.CyBle_CustomInit,"ax",%progbits
+  18              		.align	2
+  19              		.global	CyBle_CustomInit
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	CyBle_CustomInit, %function
+  23              	CyBle_CustomInit:
+  24              	.LFB2:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\BLE_custom.c"
+   1:.\Generated_Source\PSoC4/BLE_custom.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/BLE_custom.c **** File Name: CYBLE_custom.c
+   3:.\Generated_Source\PSoC4/BLE_custom.c **** Version 2.0
+   4:.\Generated_Source\PSoC4/BLE_custom.c **** 
+   5:.\Generated_Source\PSoC4/BLE_custom.c **** Description:
+   6:.\Generated_Source\PSoC4/BLE_custom.c ****  Contains the source code for the Custom Service.
+   7:.\Generated_Source\PSoC4/BLE_custom.c **** 
+   8:.\Generated_Source\PSoC4/BLE_custom.c **** ********************************************************************************
+   9:.\Generated_Source\PSoC4/BLE_custom.c **** Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  10:.\Generated_Source\PSoC4/BLE_custom.c **** You may use this file only in accordance with the license, terms, conditions,
+  11:.\Generated_Source\PSoC4/BLE_custom.c **** disclaimers, and limitations in the end user license agreement accompanying
+  12:.\Generated_Source\PSoC4/BLE_custom.c **** the software package with which this file was provided.
+  13:.\Generated_Source\PSoC4/BLE_custom.c **** *******************************************************************************/
+  14:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  15:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  16:.\Generated_Source\PSoC4/BLE_custom.c **** #include "BLE_eventHandler.h"
+  17:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  18:.\Generated_Source\PSoC4/BLE_custom.c **** #ifdef CYBLE_CUSTOM_SERVER
+  19:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  20:.\Generated_Source\PSoC4/BLE_custom.c **** /* If any custom service with custom characterisctis is defined in the
+  21:.\Generated_Source\PSoC4/BLE_custom.c **** * customizer's GUI their handles will be present in this array.
+  22:.\Generated_Source\PSoC4/BLE_custom.c **** */
+  23:.\Generated_Source\PSoC4/BLE_custom.c **** /* This array contains attribute handles for the defined Custom Services and their characteristics 
+  24:.\Generated_Source\PSoC4/BLE_custom.c ****    The array index definitions are located in the CYBLE_custom.h file. */
+  25:.\Generated_Source\PSoC4/BLE_custom.c **** const CYBLE_CUSTOMS_T cyBle_customs[0x01u] = {
+  26:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  27:.\Generated_Source\PSoC4/BLE_custom.c ****     /* IDAC service */
+  28:.\Generated_Source\PSoC4/BLE_custom.c ****     {
+  29:.\Generated_Source\PSoC4/BLE_custom.c ****         0x000Cu, /* Handle of the IDAC service */ 
+  30:.\Generated_Source\PSoC4/BLE_custom.c ****         {
+  31:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  32:.\Generated_Source\PSoC4/BLE_custom.c ****             /* Change IDAC characteristic */
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/BLE_custom.c ****             {
+  34:.\Generated_Source\PSoC4/BLE_custom.c ****                 0x000Eu, /* Handle of the Change IDAC characteristic */ 
+  35:.\Generated_Source\PSoC4/BLE_custom.c ****                 
+  36:.\Generated_Source\PSoC4/BLE_custom.c ****                 /* Array of Descriptors handles */
+  37:.\Generated_Source\PSoC4/BLE_custom.c ****                 {
+  38:.\Generated_Source\PSoC4/BLE_custom.c ****                 }, 
+  39:.\Generated_Source\PSoC4/BLE_custom.c ****             },
+  40:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  41:.\Generated_Source\PSoC4/BLE_custom.c ****             /* Start Motor characteristic */
+  42:.\Generated_Source\PSoC4/BLE_custom.c ****             {
+  43:.\Generated_Source\PSoC4/BLE_custom.c ****                 0x0010u, /* Handle of the Start Motor characteristic */ 
+  44:.\Generated_Source\PSoC4/BLE_custom.c ****                 
+  45:.\Generated_Source\PSoC4/BLE_custom.c ****                 /* Array of Descriptors handles */
+  46:.\Generated_Source\PSoC4/BLE_custom.c ****                 {
+  47:.\Generated_Source\PSoC4/BLE_custom.c ****                 }, 
+  48:.\Generated_Source\PSoC4/BLE_custom.c ****             },
+  49:.\Generated_Source\PSoC4/BLE_custom.c ****         }, 
+  50:.\Generated_Source\PSoC4/BLE_custom.c ****     },
+  51:.\Generated_Source\PSoC4/BLE_custom.c **** };
+  52:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  53:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  54:.\Generated_Source\PSoC4/BLE_custom.c **** #endif /* (CYBLE_CUSTOM_SERVER) */
+  55:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  56:.\Generated_Source\PSoC4/BLE_custom.c **** #ifdef CYBLE_CUSTOM_CLIENT
+  57:.\Generated_Source\PSoC4/BLE_custom.c ****     
+  58:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  59:.\Generated_Source\PSoC4/BLE_custom.c **** static uint16 cyBle_customDisServIndex;
+  60:.\Generated_Source\PSoC4/BLE_custom.c **** static uint16 cyBle_customDisCharIndex;
+  61:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  62:.\Generated_Source\PSoC4/BLE_custom.c **** #endif /* (CYBLE_CUSTOM_CLIENT) */
+  63:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  64:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  65:.\Generated_Source\PSoC4/BLE_custom.c **** /****************************************************************************** 
+  66:.\Generated_Source\PSoC4/BLE_custom.c **** ##Function Name: CyBle_CustomInit
+  67:.\Generated_Source\PSoC4/BLE_custom.c **** *******************************************************************************
+  68:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  69:.\Generated_Source\PSoC4/BLE_custom.c **** Summary:
+  70:.\Generated_Source\PSoC4/BLE_custom.c ****  This function initializes Custom Service.
+  71:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  72:.\Generated_Source\PSoC4/BLE_custom.c **** Parameters:
+  73:.\Generated_Source\PSoC4/BLE_custom.c ****  None
+  74:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  75:.\Generated_Source\PSoC4/BLE_custom.c **** Return:
+  76:.\Generated_Source\PSoC4/BLE_custom.c ****  None
+  77:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  78:.\Generated_Source\PSoC4/BLE_custom.c **** ******************************************************************************/
+  79:.\Generated_Source\PSoC4/BLE_custom.c **** void CyBle_CustomInit(void)
+  80:.\Generated_Source\PSoC4/BLE_custom.c **** {
+  26              		.loc 1 80 0
+  27              		.cfi_startproc
+  81:.\Generated_Source\PSoC4/BLE_custom.c ****     
+  82:.\Generated_Source\PSoC4/BLE_custom.c **** #ifdef CYBLE_CUSTOM_CLIENT
+  83:.\Generated_Source\PSoC4/BLE_custom.c **** 
+  84:.\Generated_Source\PSoC4/BLE_custom.c ****     uint16 locServIndex;
+  85:.\Generated_Source\PSoC4/BLE_custom.c ****     uint16 locCharIndex;
+  86:.\Generated_Source\PSoC4/BLE_custom.c ****     uint16 locDescIndex;
+  87:.\Generated_Source\PSoC4/BLE_custom.c ****     
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 3
+
+
+  88:.\Generated_Source\PSoC4/BLE_custom.c ****     for(locServIndex = 0u; locServIndex < CYBLE_CUSTOMC_SERVICE_COUNT; locServIndex++)
+  89:.\Generated_Source\PSoC4/BLE_custom.c ****     {
+  90:.\Generated_Source\PSoC4/BLE_custom.c ****         for(locCharIndex = 0u; locCharIndex < cyBle_customCServ[locServIndex].charCount; locCharInd
+  91:.\Generated_Source\PSoC4/BLE_custom.c ****         {
+  92:.\Generated_Source\PSoC4/BLE_custom.c ****             cyBle_customCServ[locServIndex].customServChar[locCharIndex].
+  93:.\Generated_Source\PSoC4/BLE_custom.c ****                 customServCharHandle = 0u;
+  94:.\Generated_Source\PSoC4/BLE_custom.c ****             
+  95:.\Generated_Source\PSoC4/BLE_custom.c ****             for(locDescIndex = 0u; locDescIndex < 
+  96:.\Generated_Source\PSoC4/BLE_custom.c ****                 cyBle_customCServ[locServIndex].customServChar[locCharIndex].descCount; 
+  97:.\Generated_Source\PSoC4/BLE_custom.c ****                     locDescIndex++)
+  98:.\Generated_Source\PSoC4/BLE_custom.c ****             {
+  99:.\Generated_Source\PSoC4/BLE_custom.c ****                 cyBle_customCServ[locServIndex].customServChar[locCharIndex].
+ 100:.\Generated_Source\PSoC4/BLE_custom.c ****                     customServCharDesc[locDescIndex].descHandle = 0u;
+ 101:.\Generated_Source\PSoC4/BLE_custom.c ****             }
+ 102:.\Generated_Source\PSoC4/BLE_custom.c ****         }
+ 103:.\Generated_Source\PSoC4/BLE_custom.c ****     }
+ 104:.\Generated_Source\PSoC4/BLE_custom.c **** 
+ 105:.\Generated_Source\PSoC4/BLE_custom.c **** #endif /* (CYBLE_CUSTOM_CLIENT) */
+ 106:.\Generated_Source\PSoC4/BLE_custom.c **** }
+  28              		.loc 1 106 0
+  29              		@ sp needed
+  30 0000 7047     		bx	lr
+  31              		.cfi_endproc
+  32              	.LFE2:
+  33              		.size	CyBle_CustomInit, .-CyBle_CustomInit
+  34              		.global	cyBle_customs
+  35 0002 C046     		.section	.rodata
+  36              		.align	2
+  37              		.type	cyBle_customs, %object
+  38              		.size	cyBle_customs, 6
+  39              	cyBle_customs:
+  40 0000 0C00     		.short	12
+  41 0002 0E00     		.short	14
+  42 0004 1000     		.short	16
+  43 0006 0000     		.text
+  44              	.Letext0:
+  45              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+  46              		.file 3 ".\\Generated_Source\\PSoC4\\BLE_StackGatt.h"
+  47              		.file 4 ".\\Generated_Source\\PSoC4\\BLE_custom.h"
+  48              		.file 5 ".\\Generated_Source\\PSoC4\\BLE_Stack.h"
+  49              		.section	.debug_info,"",%progbits
+  50              	.Ldebug_info0:
+  51 0000 CE020000 		.4byte	0x2ce
+  52 0004 0400     		.2byte	0x4
+  53 0006 00000000 		.4byte	.Ldebug_abbrev0
+  54 000a 04       		.byte	0x4
+  55 000b 01       		.uleb128 0x1
+  56 000c 6A000000 		.4byte	.LASF78
+  57 0010 01       		.byte	0x1
+  58 0011 21020000 		.4byte	.LASF79
+  59 0015 4B040000 		.4byte	.LASF80
+  60 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  61 001d 00000000 		.4byte	0
+  62 0021 00000000 		.4byte	.Ldebug_line0
+  63 0025 02       		.uleb128 0x2
+  64 0026 01       		.byte	0x1
+  65 0027 06       		.byte	0x6
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 4
+
+
+  66 0028 A9040000 		.4byte	.LASF0
+  67 002c 02       		.uleb128 0x2
+  68 002d 01       		.byte	0x1
+  69 002e 08       		.byte	0x8
+  70 002f 0F040000 		.4byte	.LASF1
+  71 0033 02       		.uleb128 0x2
+  72 0034 02       		.byte	0x2
+  73 0035 05       		.byte	0x5
+  74 0036 46000000 		.4byte	.LASF2
+  75 003a 02       		.uleb128 0x2
+  76 003b 02       		.byte	0x2
+  77 003c 07       		.byte	0x7
+  78 003d 0F060000 		.4byte	.LASF3
+  79 0041 02       		.uleb128 0x2
+  80 0042 04       		.byte	0x4
+  81 0043 05       		.byte	0x5
+  82 0044 BA020000 		.4byte	.LASF4
+  83 0048 02       		.uleb128 0x2
+  84 0049 04       		.byte	0x4
+  85 004a 07       		.byte	0x7
+  86 004b 3A050000 		.4byte	.LASF5
+  87 004f 02       		.uleb128 0x2
+  88 0050 08       		.byte	0x8
+  89 0051 05       		.byte	0x5
+  90 0052 80020000 		.4byte	.LASF6
+  91 0056 02       		.uleb128 0x2
+  92 0057 08       		.byte	0x8
+  93 0058 07       		.byte	0x7
+  94 0059 8E020000 		.4byte	.LASF7
+  95 005d 03       		.uleb128 0x3
+  96 005e 04       		.byte	0x4
+  97 005f 05       		.byte	0x5
+  98 0060 696E7400 		.ascii	"int\000"
+  99 0064 02       		.uleb128 0x2
+ 100 0065 04       		.byte	0x4
+ 101 0066 07       		.byte	0x7
+ 102 0067 12050000 		.4byte	.LASF8
+ 103 006b 04       		.uleb128 0x4
+ 104 006c 71010000 		.4byte	.LASF70
+ 105 0070 02       		.byte	0x2
+ 106 0071 B4       		.byte	0xb4
+ 107 0072 3A000000 		.4byte	0x3a
+ 108 0076 02       		.uleb128 0x2
+ 109 0077 04       		.byte	0x4
+ 110 0078 04       		.byte	0x4
+ 111 0079 47020000 		.4byte	.LASF9
+ 112 007d 02       		.uleb128 0x2
+ 113 007e 08       		.byte	0x8
+ 114 007f 04       		.byte	0x4
+ 115 0080 BF060000 		.4byte	.LASF10
+ 116 0084 02       		.uleb128 0x2
+ 117 0085 01       		.byte	0x1
+ 118 0086 08       		.byte	0x8
+ 119 0087 EE050000 		.4byte	.LASF11
+ 120 008b 02       		.uleb128 0x2
+ 121 008c 04       		.byte	0x4
+ 122 008d 07       		.byte	0x7
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 5
+
+
+ 123 008e E6000000 		.4byte	.LASF12
+ 124 0092 05       		.uleb128 0x5
+ 125 0093 01       		.byte	0x1
+ 126 0094 05       		.byte	0x5
+ 127 0095 7A       		.byte	0x7a
+ 128 0096 17020000 		.4byte	0x217
+ 129 009a 06       		.uleb128 0x6
+ 130 009b CB010000 		.4byte	.LASF13
+ 131 009f 00       		.sleb128 0
+ 132 00a0 06       		.uleb128 0x6
+ 133 00a1 40010000 		.4byte	.LASF14
+ 134 00a5 01       		.sleb128 1
+ 135 00a6 06       		.uleb128 0x6
+ 136 00a7 28080000 		.4byte	.LASF15
+ 137 00ab 02       		.sleb128 2
+ 138 00ac 06       		.uleb128 0x6
+ 139 00ad FE060000 		.4byte	.LASF16
+ 140 00b1 03       		.sleb128 3
+ 141 00b2 06       		.uleb128 0x6
+ 142 00b3 1A010000 		.4byte	.LASF17
+ 143 00b7 04       		.sleb128 4
+ 144 00b8 06       		.uleb128 0x6
+ 145 00b9 4C030000 		.4byte	.LASF18
+ 146 00bd 05       		.sleb128 5
+ 147 00be 06       		.uleb128 0x6
+ 148 00bf 5C070000 		.4byte	.LASF19
+ 149 00c3 20       		.sleb128 32
+ 150 00c4 06       		.uleb128 0x6
+ 151 00c5 4C050000 		.4byte	.LASF20
+ 152 00c9 21       		.sleb128 33
+ 153 00ca 06       		.uleb128 0x6
+ 154 00cb 00000000 		.4byte	.LASF21
+ 155 00cf 22       		.sleb128 34
+ 156 00d0 06       		.uleb128 0x6
+ 157 00d1 68030000 		.4byte	.LASF22
+ 158 00d5 23       		.sleb128 35
+ 159 00d6 06       		.uleb128 0x6
+ 160 00d7 F6040000 		.4byte	.LASF23
+ 161 00db 24       		.sleb128 36
+ 162 00dc 06       		.uleb128 0x6
+ 163 00dd 50000000 		.4byte	.LASF24
+ 164 00e1 25       		.sleb128 37
+ 165 00e2 06       		.uleb128 0x6
+ 166 00e3 03030000 		.4byte	.LASF25
+ 167 00e7 26       		.sleb128 38
+ 168 00e8 06       		.uleb128 0x6
+ 169 00e9 E4020000 		.4byte	.LASF26
+ 170 00ed 27       		.sleb128 39
+ 171 00ee 06       		.uleb128 0x6
+ 172 00ef 24000000 		.4byte	.LASF27
+ 173 00f3 28       		.sleb128 40
+ 174 00f4 06       		.uleb128 0x6
+ 175 00f5 84050000 		.4byte	.LASF28
+ 176 00f9 29       		.sleb128 41
+ 177 00fa 06       		.uleb128 0x6
+ 178 00fb C5050000 		.4byte	.LASF29
+ 179 00ff 2A       		.sleb128 42
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 6
+
+
+ 180 0100 06       		.uleb128 0x6
+ 181 0101 5F060000 		.4byte	.LASF30
+ 182 0105 2B       		.sleb128 43
+ 183 0106 06       		.uleb128 0x6
+ 184 0107 A1050000 		.4byte	.LASF31
+ 185 010b 2C       		.sleb128 44
+ 186 010c 06       		.uleb128 0x6
+ 187 010d EF000000 		.4byte	.LASF32
+ 188 0111 C000     		.sleb128 64
+ 189 0113 06       		.uleb128 0x6
+ 190 0114 1F050000 		.4byte	.LASF33
+ 191 0118 C100     		.sleb128 65
+ 192 011a 06       		.uleb128 0x6
+ 193 011b F2080000 		.4byte	.LASF34
+ 194 011f C200     		.sleb128 66
+ 195 0121 06       		.uleb128 0x6
+ 196 0122 53010000 		.4byte	.LASF35
+ 197 0126 C300     		.sleb128 67
+ 198 0128 06       		.uleb128 0x6
+ 199 0129 E6070000 		.4byte	.LASF36
+ 200 012d C400     		.sleb128 68
+ 201 012f 06       		.uleb128 0x6
+ 202 0130 80070000 		.4byte	.LASF37
+ 203 0134 C500     		.sleb128 69
+ 204 0136 06       		.uleb128 0x6
+ 205 0137 C5070000 		.4byte	.LASF38
+ 206 013b C600     		.sleb128 70
+ 207 013d 06       		.uleb128 0x6
+ 208 013e 8B040000 		.4byte	.LASF39
+ 209 0142 C700     		.sleb128 71
+ 210 0144 06       		.uleb128 0x6
+ 211 0145 CF040000 		.4byte	.LASF40
+ 212 0149 C800     		.sleb128 72
+ 213 014b 06       		.uleb128 0x6
+ 214 014c 4D020000 		.4byte	.LASF41
+ 215 0150 C900     		.sleb128 73
+ 216 0152 06       		.uleb128 0x6
+ 217 0153 22060000 		.4byte	.LASF42
+ 218 0157 CA00     		.sleb128 74
+ 219 0159 06       		.uleb128 0x6
+ 220 015a 8B010000 		.4byte	.LASF43
+ 221 015e CB00     		.sleb128 75
+ 222 0160 06       		.uleb128 0x6
+ 223 0161 B5040000 		.4byte	.LASF44
+ 224 0165 CC00     		.sleb128 76
+ 225 0167 06       		.uleb128 0x6
+ 226 0168 66020000 		.4byte	.LASF45
+ 227 016c CD00     		.sleb128 77
+ 228 016e 06       		.uleb128 0x6
+ 229 016f A7070000 		.4byte	.LASF46
+ 230 0173 CE00     		.sleb128 78
+ 231 0175 06       		.uleb128 0x6
+ 232 0176 2C040000 		.4byte	.LASF47
+ 233 017a CF00     		.sleb128 79
+ 234 017c 06       		.uleb128 0x6
+ 235 017d 85080000 		.4byte	.LASF48
+ 236 0181 D000     		.sleb128 80
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 7
+
+
+ 237 0183 06       		.uleb128 0x6
+ 238 0184 40060000 		.4byte	.LASF49
+ 239 0188 D100     		.sleb128 81
+ 240 018a 06       		.uleb128 0x6
+ 241 018b 2B030000 		.4byte	.LASF50
+ 242 018f D200     		.sleb128 82
+ 243 0191 06       		.uleb128 0x6
+ 244 0192 C3020000 		.4byte	.LASF51
+ 245 0196 D300     		.sleb128 83
+ 246 0198 06       		.uleb128 0x6
+ 247 0199 AA010000 		.4byte	.LASF52
+ 248 019d D400     		.sleb128 84
+ 249 019f 06       		.uleb128 0x6
+ 250 01a0 CE080000 		.4byte	.LASF53
+ 251 01a4 D500     		.sleb128 85
+ 252 01a6 06       		.uleb128 0x6
+ 253 01a7 63080000 		.4byte	.LASF54
+ 254 01ab D600     		.sleb128 86
+ 255 01ad 06       		.uleb128 0x6
+ 256 01ae 3A080000 		.4byte	.LASF55
+ 257 01b2 D700     		.sleb128 87
+ 258 01b4 06       		.uleb128 0x6
+ 259 01b5 E9030000 		.4byte	.LASF56
+ 260 01b9 F000     		.sleb128 112
+ 261 01bb 06       		.uleb128 0x6
+ 262 01bc 36070000 		.4byte	.LASF57
+ 263 01c0 F100     		.sleb128 113
+ 264 01c2 06       		.uleb128 0x6
+ 265 01c3 F3050000 		.4byte	.LASF58
+ 266 01c7 F200     		.sleb128 114
+ 267 01c9 06       		.uleb128 0x6
+ 268 01ca E2010000 		.4byte	.LASF59
+ 269 01ce F300     		.sleb128 115
+ 270 01d0 06       		.uleb128 0x6
+ 271 01d1 9E030000 		.4byte	.LASF60
+ 272 01d5 F400     		.sleb128 116
+ 273 01d7 06       		.uleb128 0x6
+ 274 01d8 63050000 		.4byte	.LASF61
+ 275 01dc F500     		.sleb128 117
+ 276 01de 06       		.uleb128 0x6
+ 277 01df 00020000 		.4byte	.LASF62
+ 278 01e3 F600     		.sleb128 118
+ 279 01e5 06       		.uleb128 0x6
+ 280 01e6 17070000 		.4byte	.LASF63
+ 281 01ea F700     		.sleb128 119
+ 282 01ec 06       		.uleb128 0x6
+ 283 01ed 9C060000 		.4byte	.LASF64
+ 284 01f1 F800     		.sleb128 120
+ 285 01f3 06       		.uleb128 0x6
+ 286 01f4 C6060000 		.4byte	.LASF65
+ 287 01f8 F900     		.sleb128 121
+ 288 01fa 06       		.uleb128 0x6
+ 289 01fb 04080000 		.4byte	.LASF66
+ 290 01ff FA00     		.sleb128 122
+ 291 0201 06       		.uleb128 0x6
+ 292 0202 7E060000 		.4byte	.LASF67
+ 293 0206 FA01     		.sleb128 250
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 8
+
+
+ 294 0208 06       		.uleb128 0x6
+ 295 0209 CA030000 		.4byte	.LASF68
+ 296 020d FB01     		.sleb128 251
+ 297 020f 06       		.uleb128 0x6
+ 298 0210 BC030000 		.4byte	.LASF69
+ 299 0214 FF01     		.sleb128 255
+ 300 0216 00       		.byte	0
+ 301 0217 07       		.uleb128 0x7
+ 302 0218 A4080000 		.4byte	.LASF71
+ 303 021c 03       		.byte	0x3
+ 304 021d 6201     		.2byte	0x162
+ 305 021f 6B000000 		.4byte	0x6b
+ 306 0223 08       		.uleb128 0x8
+ 307 0224 02       		.byte	0x2
+ 308 0225 04       		.byte	0x4
+ 309 0226 3B       		.byte	0x3b
+ 310 0227 44020000 		.4byte	0x244
+ 311 022b 09       		.uleb128 0x9
+ 312 022c E9060000 		.4byte	.LASF72
+ 313 0230 04       		.byte	0x4
+ 314 0231 3E       		.byte	0x3e
+ 315 0232 17020000 		.4byte	0x217
+ 316 0236 00       		.byte	0
+ 317 0237 09       		.uleb128 0x9
+ 318 0238 78010000 		.4byte	.LASF73
+ 319 023c 04       		.byte	0x4
+ 320 023d 40       		.byte	0x40
+ 321 023e 44020000 		.4byte	0x244
+ 322 0242 02       		.byte	0x2
+ 323 0243 00       		.byte	0
+ 324 0244 0A       		.uleb128 0xa
+ 325 0245 17020000 		.4byte	0x217
+ 326 0249 53020000 		.4byte	0x253
+ 327 024d 0B       		.uleb128 0xb
+ 328 024e 8B000000 		.4byte	0x8b
+ 329 0252 00       		.byte	0
+ 330 0253 04       		.uleb128 0x4
+ 331 0254 A5020000 		.4byte	.LASF74
+ 332 0258 04       		.byte	0x4
+ 333 0259 41       		.byte	0x41
+ 334 025a 23020000 		.4byte	0x223
+ 335 025e 08       		.uleb128 0x8
+ 336 025f 06       		.byte	0x6
+ 337 0260 04       		.byte	0x4
+ 338 0261 44       		.byte	0x44
+ 339 0262 7F020000 		.4byte	0x27f
+ 340 0266 09       		.uleb128 0x9
+ 341 0267 09010000 		.4byte	.LASF75
+ 342 026b 04       		.byte	0x4
+ 343 026c 47       		.byte	0x47
+ 344 026d 17020000 		.4byte	0x217
+ 345 0271 00       		.byte	0
+ 346 0272 09       		.uleb128 0x9
+ 347 0273 1D040000 		.4byte	.LASF76
+ 348 0277 04       		.byte	0x4
+ 349 0278 4A       		.byte	0x4a
+ 350 0279 7F020000 		.4byte	0x27f
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 9
+
+
+ 351 027d 02       		.byte	0x2
+ 352 027e 00       		.byte	0
+ 353 027f 0A       		.uleb128 0xa
+ 354 0280 53020000 		.4byte	0x253
+ 355 0284 8F020000 		.4byte	0x28f
+ 356 0288 0C       		.uleb128 0xc
+ 357 0289 8B000000 		.4byte	0x8b
+ 358 028d 01       		.byte	0x1
+ 359 028e 00       		.byte	0
+ 360 028f 04       		.uleb128 0x4
+ 361 0290 8E030000 		.4byte	.LASF77
+ 362 0294 04       		.byte	0x4
+ 363 0295 4B       		.byte	0x4b
+ 364 0296 5E020000 		.4byte	0x25e
+ 365 029a 0D       		.uleb128 0xd
+ 366 029b 2F010000 		.4byte	.LASF81
+ 367 029f 01       		.byte	0x1
+ 368 02a0 4F       		.byte	0x4f
+ 369 02a1 00000000 		.4byte	.LFB2
+ 370 02a5 02000000 		.4byte	.LFE2-.LFB2
+ 371 02a9 01       		.uleb128 0x1
+ 372 02aa 9C       		.byte	0x9c
+ 373 02ab 0A       		.uleb128 0xa
+ 374 02ac 8F020000 		.4byte	0x28f
+ 375 02b0 BB020000 		.4byte	0x2bb
+ 376 02b4 0C       		.uleb128 0xc
+ 377 02b5 8B000000 		.4byte	0x8b
+ 378 02b9 00       		.byte	0
+ 379 02ba 00       		.byte	0
+ 380 02bb 0E       		.uleb128 0xe
+ 381 02bc C0080000 		.4byte	.LASF82
+ 382 02c0 01       		.byte	0x1
+ 383 02c1 19       		.byte	0x19
+ 384 02c2 CC020000 		.4byte	0x2cc
+ 385 02c6 05       		.uleb128 0x5
+ 386 02c7 03       		.byte	0x3
+ 387 02c8 00000000 		.4byte	cyBle_customs
+ 388 02cc 0F       		.uleb128 0xf
+ 389 02cd AB020000 		.4byte	0x2ab
+ 390 02d1 00       		.byte	0
+ 391              		.section	.debug_abbrev,"",%progbits
+ 392              	.Ldebug_abbrev0:
+ 393 0000 01       		.uleb128 0x1
+ 394 0001 11       		.uleb128 0x11
+ 395 0002 01       		.byte	0x1
+ 396 0003 25       		.uleb128 0x25
+ 397 0004 0E       		.uleb128 0xe
+ 398 0005 13       		.uleb128 0x13
+ 399 0006 0B       		.uleb128 0xb
+ 400 0007 03       		.uleb128 0x3
+ 401 0008 0E       		.uleb128 0xe
+ 402 0009 1B       		.uleb128 0x1b
+ 403 000a 0E       		.uleb128 0xe
+ 404 000b 55       		.uleb128 0x55
+ 405 000c 17       		.uleb128 0x17
+ 406 000d 11       		.uleb128 0x11
+ 407 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 10
+
+
+ 408 000f 10       		.uleb128 0x10
+ 409 0010 17       		.uleb128 0x17
+ 410 0011 00       		.byte	0
+ 411 0012 00       		.byte	0
+ 412 0013 02       		.uleb128 0x2
+ 413 0014 24       		.uleb128 0x24
+ 414 0015 00       		.byte	0
+ 415 0016 0B       		.uleb128 0xb
+ 416 0017 0B       		.uleb128 0xb
+ 417 0018 3E       		.uleb128 0x3e
+ 418 0019 0B       		.uleb128 0xb
+ 419 001a 03       		.uleb128 0x3
+ 420 001b 0E       		.uleb128 0xe
+ 421 001c 00       		.byte	0
+ 422 001d 00       		.byte	0
+ 423 001e 03       		.uleb128 0x3
+ 424 001f 24       		.uleb128 0x24
+ 425 0020 00       		.byte	0
+ 426 0021 0B       		.uleb128 0xb
+ 427 0022 0B       		.uleb128 0xb
+ 428 0023 3E       		.uleb128 0x3e
+ 429 0024 0B       		.uleb128 0xb
+ 430 0025 03       		.uleb128 0x3
+ 431 0026 08       		.uleb128 0x8
+ 432 0027 00       		.byte	0
+ 433 0028 00       		.byte	0
+ 434 0029 04       		.uleb128 0x4
+ 435 002a 16       		.uleb128 0x16
+ 436 002b 00       		.byte	0
+ 437 002c 03       		.uleb128 0x3
+ 438 002d 0E       		.uleb128 0xe
+ 439 002e 3A       		.uleb128 0x3a
+ 440 002f 0B       		.uleb128 0xb
+ 441 0030 3B       		.uleb128 0x3b
+ 442 0031 0B       		.uleb128 0xb
+ 443 0032 49       		.uleb128 0x49
+ 444 0033 13       		.uleb128 0x13
+ 445 0034 00       		.byte	0
+ 446 0035 00       		.byte	0
+ 447 0036 05       		.uleb128 0x5
+ 448 0037 04       		.uleb128 0x4
+ 449 0038 01       		.byte	0x1
+ 450 0039 0B       		.uleb128 0xb
+ 451 003a 0B       		.uleb128 0xb
+ 452 003b 3A       		.uleb128 0x3a
+ 453 003c 0B       		.uleb128 0xb
+ 454 003d 3B       		.uleb128 0x3b
+ 455 003e 0B       		.uleb128 0xb
+ 456 003f 01       		.uleb128 0x1
+ 457 0040 13       		.uleb128 0x13
+ 458 0041 00       		.byte	0
+ 459 0042 00       		.byte	0
+ 460 0043 06       		.uleb128 0x6
+ 461 0044 28       		.uleb128 0x28
+ 462 0045 00       		.byte	0
+ 463 0046 03       		.uleb128 0x3
+ 464 0047 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 11
+
+
+ 465 0048 1C       		.uleb128 0x1c
+ 466 0049 0D       		.uleb128 0xd
+ 467 004a 00       		.byte	0
+ 468 004b 00       		.byte	0
+ 469 004c 07       		.uleb128 0x7
+ 470 004d 16       		.uleb128 0x16
+ 471 004e 00       		.byte	0
+ 472 004f 03       		.uleb128 0x3
+ 473 0050 0E       		.uleb128 0xe
+ 474 0051 3A       		.uleb128 0x3a
+ 475 0052 0B       		.uleb128 0xb
+ 476 0053 3B       		.uleb128 0x3b
+ 477 0054 05       		.uleb128 0x5
+ 478 0055 49       		.uleb128 0x49
+ 479 0056 13       		.uleb128 0x13
+ 480 0057 00       		.byte	0
+ 481 0058 00       		.byte	0
+ 482 0059 08       		.uleb128 0x8
+ 483 005a 13       		.uleb128 0x13
+ 484 005b 01       		.byte	0x1
+ 485 005c 0B       		.uleb128 0xb
+ 486 005d 0B       		.uleb128 0xb
+ 487 005e 3A       		.uleb128 0x3a
+ 488 005f 0B       		.uleb128 0xb
+ 489 0060 3B       		.uleb128 0x3b
+ 490 0061 0B       		.uleb128 0xb
+ 491 0062 01       		.uleb128 0x1
+ 492 0063 13       		.uleb128 0x13
+ 493 0064 00       		.byte	0
+ 494 0065 00       		.byte	0
+ 495 0066 09       		.uleb128 0x9
+ 496 0067 0D       		.uleb128 0xd
+ 497 0068 00       		.byte	0
+ 498 0069 03       		.uleb128 0x3
+ 499 006a 0E       		.uleb128 0xe
+ 500 006b 3A       		.uleb128 0x3a
+ 501 006c 0B       		.uleb128 0xb
+ 502 006d 3B       		.uleb128 0x3b
+ 503 006e 0B       		.uleb128 0xb
+ 504 006f 49       		.uleb128 0x49
+ 505 0070 13       		.uleb128 0x13
+ 506 0071 38       		.uleb128 0x38
+ 507 0072 0B       		.uleb128 0xb
+ 508 0073 00       		.byte	0
+ 509 0074 00       		.byte	0
+ 510 0075 0A       		.uleb128 0xa
+ 511 0076 01       		.uleb128 0x1
+ 512 0077 01       		.byte	0x1
+ 513 0078 49       		.uleb128 0x49
+ 514 0079 13       		.uleb128 0x13
+ 515 007a 01       		.uleb128 0x1
+ 516 007b 13       		.uleb128 0x13
+ 517 007c 00       		.byte	0
+ 518 007d 00       		.byte	0
+ 519 007e 0B       		.uleb128 0xb
+ 520 007f 21       		.uleb128 0x21
+ 521 0080 00       		.byte	0
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 12
+
+
+ 522 0081 49       		.uleb128 0x49
+ 523 0082 13       		.uleb128 0x13
+ 524 0083 00       		.byte	0
+ 525 0084 00       		.byte	0
+ 526 0085 0C       		.uleb128 0xc
+ 527 0086 21       		.uleb128 0x21
+ 528 0087 00       		.byte	0
+ 529 0088 49       		.uleb128 0x49
+ 530 0089 13       		.uleb128 0x13
+ 531 008a 2F       		.uleb128 0x2f
+ 532 008b 0B       		.uleb128 0xb
+ 533 008c 00       		.byte	0
+ 534 008d 00       		.byte	0
+ 535 008e 0D       		.uleb128 0xd
+ 536 008f 2E       		.uleb128 0x2e
+ 537 0090 00       		.byte	0
+ 538 0091 3F       		.uleb128 0x3f
+ 539 0092 19       		.uleb128 0x19
+ 540 0093 03       		.uleb128 0x3
+ 541 0094 0E       		.uleb128 0xe
+ 542 0095 3A       		.uleb128 0x3a
+ 543 0096 0B       		.uleb128 0xb
+ 544 0097 3B       		.uleb128 0x3b
+ 545 0098 0B       		.uleb128 0xb
+ 546 0099 27       		.uleb128 0x27
+ 547 009a 19       		.uleb128 0x19
+ 548 009b 11       		.uleb128 0x11
+ 549 009c 01       		.uleb128 0x1
+ 550 009d 12       		.uleb128 0x12
+ 551 009e 06       		.uleb128 0x6
+ 552 009f 40       		.uleb128 0x40
+ 553 00a0 18       		.uleb128 0x18
+ 554 00a1 9742     		.uleb128 0x2117
+ 555 00a3 19       		.uleb128 0x19
+ 556 00a4 00       		.byte	0
+ 557 00a5 00       		.byte	0
+ 558 00a6 0E       		.uleb128 0xe
+ 559 00a7 34       		.uleb128 0x34
+ 560 00a8 00       		.byte	0
+ 561 00a9 03       		.uleb128 0x3
+ 562 00aa 0E       		.uleb128 0xe
+ 563 00ab 3A       		.uleb128 0x3a
+ 564 00ac 0B       		.uleb128 0xb
+ 565 00ad 3B       		.uleb128 0x3b
+ 566 00ae 0B       		.uleb128 0xb
+ 567 00af 49       		.uleb128 0x49
+ 568 00b0 13       		.uleb128 0x13
+ 569 00b1 3F       		.uleb128 0x3f
+ 570 00b2 19       		.uleb128 0x19
+ 571 00b3 02       		.uleb128 0x2
+ 572 00b4 18       		.uleb128 0x18
+ 573 00b5 00       		.byte	0
+ 574 00b6 00       		.byte	0
+ 575 00b7 0F       		.uleb128 0xf
+ 576 00b8 26       		.uleb128 0x26
+ 577 00b9 00       		.byte	0
+ 578 00ba 49       		.uleb128 0x49
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 13
+
+
+ 579 00bb 13       		.uleb128 0x13
+ 580 00bc 00       		.byte	0
+ 581 00bd 00       		.byte	0
+ 582 00be 00       		.byte	0
+ 583              		.section	.debug_aranges,"",%progbits
+ 584 0000 1C000000 		.4byte	0x1c
+ 585 0004 0200     		.2byte	0x2
+ 586 0006 00000000 		.4byte	.Ldebug_info0
+ 587 000a 04       		.byte	0x4
+ 588 000b 00       		.byte	0
+ 589 000c 0000     		.2byte	0
+ 590 000e 0000     		.2byte	0
+ 591 0010 00000000 		.4byte	.LFB2
+ 592 0014 02000000 		.4byte	.LFE2-.LFB2
+ 593 0018 00000000 		.4byte	0
+ 594 001c 00000000 		.4byte	0
+ 595              		.section	.debug_ranges,"",%progbits
+ 596              	.Ldebug_ranges0:
+ 597 0000 00000000 		.4byte	.LFB2
+ 598 0004 02000000 		.4byte	.LFE2
+ 599 0008 00000000 		.4byte	0
+ 600 000c 00000000 		.4byte	0
+ 601              		.section	.debug_line,"",%progbits
+ 602              	.Ldebug_line0:
+ 603 0000 94000000 		.section	.debug_str,"MS",%progbits,1
+ 603      02007B00 
+ 603      00000201 
+ 603      FB0E0D00 
+ 603      01010101 
+ 604              	.LASF21:
+ 605 0000 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 605      455F4556 
+ 605      545F4741 
+ 605      505F5041 
+ 605      53534B45 
+ 606              	.LASF27:
+ 607 0024 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_DISCONNECTED\000"
+ 607      455F4556 
+ 607      545F4741 
+ 607      505F4445 
+ 607      56494345 
+ 608              	.LASF2:
+ 609 0046 73686F72 		.ascii	"short int\000"
+ 609      7420696E 
+ 609      7400
+ 610              	.LASF24:
+ 611 0050 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
+ 611      455F4556 
+ 611      545F4741 
+ 611      505F4155 
+ 611      54485F46 
+ 612              	.LASF78:
+ 613 006a 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 613      4320342E 
+ 613      382E3420 
+ 613      32303134 
+ 613      30353236 
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 14
+
+
+ 614 009d 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 614      20726576 
+ 614      6973696F 
+ 614      6E203231 
+ 614      31333538 
+ 615 00d0 67202D66 		.ascii	"g -ffunction-sections\000"
+ 615      66756E63 
+ 615      74696F6E 
+ 615      2D736563 
+ 615      74696F6E 
+ 616              	.LASF12:
+ 617 00e6 73697A65 		.ascii	"sizetype\000"
+ 617      74797065 
+ 617      00
+ 618              	.LASF32:
+ 619 00ef 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
+ 619      455F4556 
+ 619      545F4741 
+ 619      5454435F 
+ 619      4552524F 
+ 620              	.LASF75:
+ 621 0109 63757374 		.ascii	"customServHandle\000"
+ 621      6F6D5365 
+ 621      72764861 
+ 621      6E646C65 
+ 621      00
+ 622              	.LASF17:
+ 623 011a 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
+ 623      455F4556 
+ 623      545F4843 
+ 623      495F5354 
+ 623      41545553 
+ 624              	.LASF81:
+ 625 012f 4379426C 		.ascii	"CyBle_CustomInit\000"
+ 625      655F4375 
+ 625      73746F6D 
+ 625      496E6974 
+ 625      00
+ 626              	.LASF14:
+ 627 0140 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
+ 627      455F4556 
+ 627      545F5354 
+ 627      41434B5F 
+ 627      4F4E00
+ 628              	.LASF35:
+ 629 0153 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
+ 629      455F4556 
+ 629      545F4741 
+ 629      5454535F 
+ 629      58434E48 
+ 630              	.LASF70:
+ 631 0171 75696E74 		.ascii	"uint16\000"
+ 631      313600
+ 632              	.LASF73:
+ 633 0178 63757374 		.ascii	"customServCharDesc\000"
+ 633      6F6D5365 
+ 633      72764368 
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 15
+
+
+ 633      61724465 
+ 633      736300
+ 634              	.LASF43:
+ 635 018b 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
+ 635      455F4556 
+ 635      545F4741 
+ 635      5454435F 
+ 635      52454144 
+ 636              	.LASF52:
+ 637 01aa 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
+ 637      455F4556 
+ 637      545F4741 
+ 637      5454535F 
+ 637      48414E44 
+ 638              	.LASF13:
+ 639 01cb 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
+ 639      455F4556 
+ 639      545F484F 
+ 639      53545F49 
+ 639      4E56414C 
+ 640              	.LASF59:
+ 641 01e2 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
+ 641      455F4556 
+ 641      545F4C32 
+ 641      4341505F 
+ 641      43424643 
+ 642              	.LASF62:
+ 643 0200 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
+ 643      455F4556 
+ 643      545F4C32 
+ 643      4341505F 
+ 643      43424643 
+ 644              	.LASF79:
+ 645 0221 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\BLE_custom.c\000"
+ 645      6E657261 
+ 645      7465645F 
+ 645      536F7572 
+ 645      63655C50 
+ 646              	.LASF9:
+ 647 0247 666C6F61 		.ascii	"float\000"
+ 647      7400
+ 648              	.LASF41:
+ 649 024d 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
+ 649      455F4556 
+ 649      545F4741 
+ 649      5454435F 
+ 649      52454144 
+ 650              	.LASF45:
+ 651 0266 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
+ 651      455F4556 
+ 651      545F4741 
+ 651      5454435F 
+ 651      57524954 
+ 652              	.LASF6:
+ 653 0280 6C6F6E67 		.ascii	"long long int\000"
+ 653      206C6F6E 
+ 653      6720696E 
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 16
+
+
+ 653      7400
+ 654              	.LASF7:
+ 655 028e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 655      206C6F6E 
+ 655      6720756E 
+ 655      7369676E 
+ 655      65642069 
+ 656              	.LASF74:
+ 657 02a5 4359424C 		.ascii	"CYBLE_CUSTOMS_INFO_T\000"
+ 657      455F4355 
+ 657      53544F4D 
+ 657      535F494E 
+ 657      464F5F54 
+ 658              	.LASF4:
+ 659 02ba 6C6F6E67 		.ascii	"long int\000"
+ 659      20696E74 
+ 659      00
+ 660              	.LASF51:
+ 661 02c3 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
+ 661      455F4556 
+ 661      545F4741 
+ 661      5454435F 
+ 661      48414E44 
+ 662              	.LASF26:
+ 663 02e4 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
+ 663      455F4556 
+ 663      545F4741 
+ 663      505F4445 
+ 663      56494345 
+ 664              	.LASF25:
+ 665 0303 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
+ 665      455F4556 
+ 665      545F4741 
+ 665      50505F41 
+ 665      44564552 
+ 666              	.LASF50:
+ 667 032b 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
+ 667      455F4556 
+ 667      545F4741 
+ 667      5454435F 
+ 667      48414E44 
+ 668              	.LASF18:
+ 669 034c 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
+ 669      455F4556 
+ 669      545F5354 
+ 669      41434B5F 
+ 669      42555359 
+ 670              	.LASF22:
+ 671 0368 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
+ 671      455F4556 
+ 671      545F4741 
+ 671      505F5041 
+ 671      53534B45 
+ 672              	.LASF77:
+ 673 038e 4359424C 		.ascii	"CYBLE_CUSTOMS_T\000"
+ 673      455F4355 
+ 673      53544F4D 
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 17
+
+
+ 673      535F5400 
+ 674              	.LASF60:
+ 675 039e 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
+ 675      455F4556 
+ 675      545F4C32 
+ 675      4341505F 
+ 675      43424643 
+ 676              	.LASF69:
+ 677 03bc 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
+ 677      455F4556 
+ 677      545F4D41 
+ 677      5800
+ 678              	.LASF68:
+ 679 03ca 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
+ 679      455F4556 
+ 679      545F4C45 
+ 679      5F50494E 
+ 679      475F4155 
+ 680              	.LASF56:
+ 681 03e9 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
+ 681      455F4556 
+ 681      545F4C32 
+ 681      4341505F 
+ 681      434F4E4E 
+ 682              	.LASF1:
+ 683 040f 756E7369 		.ascii	"unsigned char\000"
+ 683      676E6564 
+ 683      20636861 
+ 683      7200
+ 684              	.LASF76:
+ 685 041d 63757374 		.ascii	"customServInfo\000"
+ 685      6F6D5365 
+ 685      7276496E 
+ 685      666F00
+ 686              	.LASF47:
+ 687 042c 4359424C 		.ascii	"CYBLE_EVT_GATTS_PREP_WRITE_REQ\000"
+ 687      455F4556 
+ 687      545F4741 
+ 687      5454535F 
+ 687      50524550 
+ 688              	.LASF80:
+ 689 044b 433A5C55 		.ascii	"C:\\Users\\Raulmo\\Desktop\\Lightening\\BLE_FindMe0"
+ 689      73657273 
+ 689      5C526175 
+ 689      6C6D6F5C 
+ 689      4465736B 
+ 690 0479 315C4944 		.ascii	"1\\IDAC_BLE2.cydsn\000"
+ 690      41435F42 
+ 690      4C45322E 
+ 690      63796473 
+ 690      6E00
+ 691              	.LASF39:
+ 692 048b 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
+ 692      455F4556 
+ 692      545F4741 
+ 692      5454435F 
+ 692      46494E44 
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 18
+
+
+ 693              	.LASF0:
+ 694 04a9 7369676E 		.ascii	"signed char\000"
+ 694      65642063 
+ 694      68617200 
+ 695              	.LASF44:
+ 696 04b5 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
+ 696      455F4556 
+ 696      545F4741 
+ 696      5454535F 
+ 696      57524954 
+ 697              	.LASF40:
+ 698 04cf 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
+ 698      455F4556 
+ 698      545F4741 
+ 698      5454435F 
+ 698      46494E44 
+ 699              	.LASF23:
+ 700 04f6 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
+ 700      455F4556 
+ 700      545F4741 
+ 700      505F4155 
+ 700      54485F43 
+ 701              	.LASF8:
+ 702 0512 756E7369 		.ascii	"unsigned int\000"
+ 702      676E6564 
+ 702      20696E74 
+ 702      00
+ 703              	.LASF33:
+ 704 051f 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
+ 704      455F4556 
+ 704      545F4741 
+ 704      54545F43 
+ 704      4F4E4E45 
+ 705              	.LASF5:
+ 706 053a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 706      20756E73 
+ 706      69676E65 
+ 706      6420696E 
+ 706      7400
+ 707              	.LASF20:
+ 708 054c 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
+ 708      455F4556 
+ 708      545F4741 
+ 708      505F4155 
+ 708      54485F52 
+ 709              	.LASF61:
+ 710 0563 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
+ 710      455F4556 
+ 710      545F4C32 
+ 710      4341505F 
+ 710      43424643 
+ 711              	.LASF28:
+ 712 0584 4359424C 		.ascii	"CYBLE_EVT_GAP_ENCRYPT_CHANGE\000"
+ 712      455F4556 
+ 712      545F4741 
+ 712      505F454E 
+ 712      43525950 
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 19
+
+
+ 713              	.LASF31:
+ 714 05a1 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
+ 714      455F4556 
+ 714      545F4741 
+ 714      505F4B45 
+ 714      59494E46 
+ 715              	.LASF29:
+ 716 05c5 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
+ 716      455F4556 
+ 716      545F4741 
+ 716      505F434F 
+ 716      4E4E4543 
+ 717              	.LASF11:
+ 718 05ee 63686172 		.ascii	"char\000"
+ 718      00
+ 719              	.LASF58:
+ 720 05f3 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
+ 720      455F4556 
+ 720      545F4C32 
+ 720      4341505F 
+ 720      434F4D4D 
+ 721              	.LASF3:
+ 722 060f 73686F72 		.ascii	"short unsigned int\000"
+ 722      7420756E 
+ 722      7369676E 
+ 722      65642069 
+ 722      6E7400
+ 723              	.LASF42:
+ 724 0622 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
+ 724      455F4556 
+ 724      545F4741 
+ 724      5454435F 
+ 724      52454144 
+ 725              	.LASF49:
+ 726 0640 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
+ 726      455F4556 
+ 726      545F4741 
+ 726      5454435F 
+ 726      45584543 
+ 727              	.LASF30:
+ 728 065f 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
+ 728      455F4556 
+ 728      545F4741 
+ 728      50435F53 
+ 728      43414E5F 
+ 729              	.LASF67:
+ 730 067e 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
+ 730      455F4556 
+ 730      545F5045 
+ 730      4E44494E 
+ 730      475F464C 
+ 731              	.LASF64:
+ 732 069c 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
+ 732      455F4556 
+ 732      545F4C32 
+ 732      4341505F 
+ 732      43424643 
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 20
+
+
+ 733              	.LASF10:
+ 734 06bf 646F7562 		.ascii	"double\000"
+ 734      6C6500
+ 735              	.LASF65:
+ 736 06c6 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
+ 736      455F4556 
+ 736      545F4C32 
+ 736      4341505F 
+ 736      43424643 
+ 737              	.LASF72:
+ 738 06e9 63757374 		.ascii	"customServCharHandle\000"
+ 738      6F6D5365 
+ 738      72764368 
+ 738      61724861 
+ 738      6E646C65 
+ 739              	.LASF16:
+ 740 06fe 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
+ 740      455F4556 
+ 740      545F4841 
+ 740      52445741 
+ 740      52455F45 
+ 741              	.LASF63:
+ 742 0717 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
+ 742      455F4556 
+ 742      545F4C32 
+ 742      4341505F 
+ 742      43424643 
+ 743              	.LASF57:
+ 744 0736 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
+ 744      455F4556 
+ 744      545F4C32 
+ 744      4341505F 
+ 744      434F4E4E 
+ 745              	.LASF19:
+ 746 075c 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
+ 746      455F4556 
+ 746      545F4741 
+ 746      50435F53 
+ 746      43414E5F 
+ 747              	.LASF37:
+ 748 0780 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 748      455F4556 
+ 748      545F4741 
+ 748      5454435F 
+ 748      52454144 
+ 749              	.LASF46:
+ 750 07a7 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ 750      455F4556 
+ 750      545F4741 
+ 750      5454535F 
+ 750      57524954 
+ 751              	.LASF38:
+ 752 07c5 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
+ 752      455F4556 
+ 752      545F4741 
+ 752      5454435F 
+ 752      52454144 
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 21
+
+
+ 753              	.LASF36:
+ 754 07e6 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 754      455F4556 
+ 754      545F4741 
+ 754      5454435F 
+ 754      5843484E 
+ 755              	.LASF66:
+ 756 0804 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ 756      455F4556 
+ 756      545F4C32 
+ 756      4341505F 
+ 756      43424643 
+ 757              	.LASF15:
+ 758 0828 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
+ 758      455F4556 
+ 758      545F5449 
+ 758      4D454F55 
+ 758      5400
+ 759              	.LASF55:
+ 760 083a 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
+ 760      455F4556 
+ 760      545F4741 
+ 760      5454535F 
+ 760      52454144 
+ 761              	.LASF54:
+ 762 0863 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
+ 762      455F4556 
+ 762      545F4741 
+ 762      5454435F 
+ 762      53544F50 
+ 763              	.LASF48:
+ 764 0885 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
+ 764      455F4556 
+ 764      545F4741 
+ 764      5454535F 
+ 764      45584543 
+ 765              	.LASF71:
+ 766 08a4 4359424C 		.ascii	"CYBLE_GATT_DB_ATTR_HANDLE_T\000"
+ 766      455F4741 
+ 766      54545F44 
+ 766      425F4154 
+ 766      54525F48 
+ 767              	.LASF82:
+ 768 08c0 6379426C 		.ascii	"cyBle_customs\000"
+ 768      655F6375 
+ 768      73746F6D 
+ 768      7300
+ 769              	.LASF53:
+ 770 08ce 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
+ 770      455F4556 
+ 770      545F4741 
+ 770      5454535F 
+ 770      44415441 
+ 771              	.LASF34:
+ 772 08f2 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
+ 772      455F4556 
+ 772      545F4741 
+ARM GAS  C:\Users\Raulmo\AppData\Local\Temp\cc4fEplM.s 			page 22
+
+
+ 772      54545F44 
+ 772      4953434F 
+ 773              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

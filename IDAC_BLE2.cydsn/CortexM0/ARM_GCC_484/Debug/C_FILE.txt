@@ -1,0 +1,1 @@
+'C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\main.c' -o .o -T C_FILE -I 'C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn' -I 'C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\Generated_Source\PSoC4' -f 'C:\Users\Raulmo\Desktop\Lightening\BLE_FindMe01\IDAC_BLE2.cydsn\CortexM0\ARM_GCC_484\Debug\.deps\C_FILE.d'
